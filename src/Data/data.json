@@ -1,0 +1,527 @@
+{
+  "title": "Portfolio",
+  "mediaType": -1,
+  "subtopics": [
+    {
+      "title": "Experience",
+      "mediaType": -1,
+      "subtopics": [
+        {
+          "title": "O2i",
+          "mediaType": -1,
+          "subtopics": [
+            {
+              "title": "Made Projects for Paramilitary Forces",
+              "mediaType": -1
+            },
+            {
+              "title": "Robotics",
+              "mediaType": -1,
+              "subtopics": [
+                { "title": "ATV", "mediaType": -1 },
+                {
+                  "title": "Drone",
+                  "mediaType": -1,
+                  "subtopics": [
+                    { "title": "Surveillence", "mediaType": -1 },
+                    { "title": "Tilt Rotor Tricopter", "mediaType": -1 }
+                  ]
+                },
+                { "title": "4 Wheel Surveillance Robot", "mediaType": -1 }
+              ]
+            },
+            {
+              "title": "IoT",
+              "mediaType": -1,
+              "subtopics": [
+                { "title": "Backend APIs in nodejs", "mediaType": -1 },
+                { "title": "Wearables", "mediaType": -1 }
+              ]
+            },
+            {
+              "title": "AI",
+              "mediaType": -1,
+              "subtopics": [
+                { "title": "Real time object detection", "mediaType": -1 },
+                { "title": "Ad Tracking in TV Channel", "mediaType": -1 },
+                { "title": "Suspicious Activity Detection", "mediaType": -1 }
+              ]
+            },
+            { "title": "Techclubs at Amity Schools", "mediaType": -1 }
+          ]
+        },
+        {
+          "title": "UCR JIIT",
+          "mediaType": -1,
+          "subtopics": [
+            {
+              "title": "Workshops",
+              "mediaType": -1,
+              "subtopics": [
+                {
+                  "title": "Robotics",
+                  "mediaType": -1,
+                  "subtopics": [
+                    { "title": "Manual", "mediaType": -1 },
+                    { "title": "Autonomous", "mediaType": -1 }
+                  ]
+                },
+                { "title": "IoT", "mediaType": -1 }
+              ]
+            },
+            {
+              "title": "Events",
+              "mediaType": -1,
+              "subtopics": [
+                { "title": "Internal and External Affairs", "mediaType": -1 },
+                { "title": "14 events in 2016-18", "mediaType": -1 }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Achievements and Honors",
+      "mediaType": -1,
+      "subtopics": [
+        {
+          "title": "Research Paper",
+          "mediaType": -1,
+          "subtopics": [
+            {
+              "title": "A step towards Home Automation using IoT",
+              "mediaType": -1
+            }
+          ]
+        },
+        {
+          "title": "IC3 Conference",
+          "mediaType": -1,
+          "subtopics": [
+            {
+              "title": "Project Exibition",
+              "mediaType": -1,
+              "subtopics": [{ "title": "Home Automation", "mediaType": -1 }]
+            }
+          ]
+        },
+        {
+          "title": "Competitions",
+          "mediaType": -1,
+          "subtopics": [
+            {
+              "title": "2015",
+              "mediaType": -1,
+              "subtopics": [
+                {
+                  "title": "JIIT",
+                  "mediaType": -1,
+                  "subtopics": [
+                    {
+                      "title": "Technocreed - Manual Robotics",
+                      "mediaType": -1,
+                      "subtopics": [{ "title": "2nd", "mediaType": -1 }]
+                    }
+                  ]
+                },
+                {
+                  "title": "SRM",
+                  "mediaType": -1,
+                  "subtopics": [
+                    {
+                      "title": "Manual Robotics",
+                      "mediaType": -1,
+                      "subtopics": [{ "title": "2nd", "mediaType": -1 }]
+                    }
+                  ]
+                },
+                {
+                  "title": "Techfest, IIT Bombay",
+                  "mediaType": -1,
+                  "subtopics": [
+                    {
+                      "title": "Manual Robotics",
+                      "mediaType": -1,
+                      "subtopics": [{ "title": "2nd", "mediaType": -1 }]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "2016",
+              "mediaType": -1,
+              "subtopics": [
+                {
+                  "title": "Impressions, JIIT",
+                  "mediaType": -1,
+                  "subtopics": [
+                    {
+                      "title": "Exaltan - LFR",
+                      "mediaType": -1,
+                      "subtopics": [{ "title": "3rd", "mediaType": -1 }]
+                    }
+                  ]
+                },
+                {
+                  "title": "Cyber Srishti, JIIT",
+                  "mediaType": -1,
+                  "subtopics": [
+                    {
+                      "title": "Automation - LFR",
+                      "mediaType": -1,
+                      "subtopics": [{ "title": "1st", "mediaType": -1 }]
+                    }
+                  ]
+                },
+                {
+                  "title": "Esya, IIIT Delhi",
+                  "mediaType": -1,
+                  "subtopics": [
+                    {
+                      "title": "Robocon - LFR",
+                      "mediaType": -1,
+                      "subtopics": [{ "title": "2nd", "mediaType": -1 }]
+                    }
+                  ]
+                },
+                {
+                  "title": "Techfest, IIT Bombay",
+                  "mediaType": -1,
+                  "subtopics": [
+                    { "title": "Collage Ambassador", "mediaType": -1 }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "2017",
+              "mediaType": -1,
+              "subtopics": [
+                {
+                  "title": "Endeavour, KIET",
+                  "mediaType": -1,
+                  "subtopics": [
+                    {
+                      "title": "LFR",
+                      "mediaType": -1,
+                      "subtopics": [{ "title": "2nd", "mediaType": -1 }]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "2019",
+              "mediaType": -1,
+              "subtopics": [
+                {
+                  "title": "Cyber Srishti, JIIT",
+                  "mediaType": -1,
+                  "subtopics": [
+                    {
+                      "title": "Project Exibition",
+                      "mediaType": -1,
+                      "subtopics": [{ "title": "2nd", "mediaType": -1 }]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Personal",
+      "mediaType": -1,
+      "subtopics": [
+        {
+          "title": "Intro",
+          "mediaType": -1,
+          "subtopics": [
+            { "title": "Hey, You've reached Harsh.", "mediaType": -1 }
+          ]
+        },
+        {
+          "title": "DOB",
+          "mediaType": -1,
+          "subtopics": [{ "title": "03/10/1997", "mediaType": -1 }]
+        },
+        {
+          "title": "Location",
+          "mediaType": -1,
+          "subtopics": [{ "title": "Delhi NCR", "mediaType": -1 }]
+        },
+        {
+          "title": "Education",
+          "mediaType": -1,
+          "subtopics": [
+            { "title": "DPS", "mediaType": -1 },
+            { "title": "JIIT", "mediaType": -1 }
+          ]
+        },
+        {
+          "title": "Hobbies",
+          "mediaType": -1,
+          "subtopics": [
+            { "title": "Listening Music", "mediaType": -1 },
+            { "title": "Sports", "mediaType": -1 },
+            { "title": "Challenging Projects", "mediaType": -1 }
+          ]
+        },
+        {
+          "title": "Social",
+          "mediaType": -1,
+          "subtopics": [
+            {
+              "title": "Phone",
+              "mediaType": -1,
+              "subtopics": [{ "title": "8979604159", "mediaType": -1 }]
+            },
+            {
+              "title": "Portfolio",
+              "mediaType": -1,
+              "subtopics": [{ "title": "itsharsh.com", "mediaType": -1 }]
+            },
+            {
+              "title": "Email",
+              "mediaType": -1,
+              "subtopics": [
+                { "title": "hkumarsingh142@gmail.com", "mediaType": -1 },
+                { "title": "hi@itsharsh.com", "mediaType": -1 }
+              ]
+            },
+            {
+              "title": "LinkedIn",
+              "mediaType": -1,
+              "subtopics": [
+                { "title": "linkedin.itsharsh.com", "mediaType": -1 }
+              ]
+            },
+            {
+              "title": "GitHub",
+              "mediaType": -1,
+              "subtopics": [{ "title": "gh.itsharsh.com", "mediaType": -1 }]
+            },
+            {
+              "title": "Resume",
+              "mediaType": -1,
+              "subtopics": [{ "title": "resume.itsharsh.com", "mediaType": -1 }]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Skills",
+      "mediaType": -1,
+      "subtopics": [
+        {
+          "title": "Software",
+          "mediaType": -1,
+          "subtopics": [
+            {
+              "title": "Web",
+              "mediaType": -1,
+              "subtopics": [
+                {
+                  "title": "Nodejs",
+                  "mediaType": -1,
+                  "subtopics": [{ "title": "6/10", "mediaType": -1 }]
+                },
+                {
+                  "title": "Reacjs",
+                  "mediaType": -1,
+                  "subtopics": [{ "title": "5/10", "mediaType": -1 }]
+                }
+              ]
+            },
+            {
+              "title": "AI",
+              "mediaType": -1,
+              "subtopics": [
+                {
+                  "title": "OpenCV",
+                  "mediaType": -1,
+                  "subtopics": [{ "title": "4/10", "mediaType": -1 }]
+                },
+                {
+                  "title": "YOLOv3",
+                  "mediaType": -1,
+                  "subtopics": [{ "title": "5/10", "mediaType": -1 }]
+                }
+              ]
+            },
+            {
+              "title": "Languages",
+              "mediaType": -1,
+              "subtopics": [
+                {
+                  "title": "Python",
+                  "mediaType": -1,
+                  "subtopics": [{ "title": "5/10", "mediaType": -1 }]
+                },
+                {
+                  "title": "C++",
+                  "mediaType": -1,
+                  "subtopics": [{ "title": "7/10", "mediaType": -1 }]
+                },
+                {
+                  "title": "Java",
+                  "mediaType": -1,
+                  "subtopics": [
+                    {
+                      "title": "JavaFX",
+                      "mediaType": -1,
+                      "subtopics": [{ "title": "7/10", "mediaType": -1 }]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "DB",
+              "mediaType": -1,
+              "subtopics": [
+                {
+                  "title": "MongoDB",
+                  "mediaType": -1,
+                  "subtopics": [{ "title": "6/10", "mediaType": -1 }]
+                },
+                {
+                  "title": "SQL",
+                  "mediaType": -1,
+                  "subtopics": [{ "title": "5/10", "mediaType": -1 }]
+                },
+                {
+                  "title": "H2",
+                  "mediaType": -1,
+                  "subtopics": [{ "title": "6/10", "mediaType": -1 }]
+                }
+              ]
+            },
+            {
+              "title": "Other",
+              "mediaType": -1,
+              "subtopics": [
+                {
+                  "title": "Git",
+                  "mediaType": -1,
+                  "subtopics": [{ "title": "8/10", "mediaType": -1 }]
+                },
+                {
+                  "title": "Heroku/Netllify",
+                  "mediaType": -1,
+                  "subtopics": [{ "title": "8/10", "mediaType": -1 }]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Hardware",
+          "mediaType": -1,
+          "subtopics": [
+            {
+              "title": "Robotics",
+              "mediaType": -1,
+              "subtopics": [
+                {
+                  "title": "nRF24L01+",
+                  "mediaType": -1,
+                  "subtopics": [{ "title": "8/10", "mediaType": -1 }]
+                },
+                {
+                  "title": "Pixhawk",
+                  "mediaType": -1,
+                  "subtopics": [{ "title": "7/10", "mediaType": -1 }]
+                },
+                {
+                  "title": "Arduino",
+                  "mediaType": -1,
+                  "subtopics": [{ "title": "9/10", "mediaType": -1 }]
+                }
+              ]
+            },
+            {
+              "title": "IoT",
+              "mediaType": -1,
+              "subtopics": [
+                {
+                  "title": "ESP32",
+                  "mediaType": -1,
+                  "subtopics": [{ "title": "9/10", "mediaType": -1 }]
+                },
+                {
+                  "title": "ESP8266",
+                  "mediaType": -1,
+                  "subtopics": [{ "title": "9/10", "mediaType": -1 }]
+                },
+                {
+                  "title": "LinkitOne",
+                  "mediaType": -1,
+                  "subtopics": [{ "title": "9/10", "mediaType": -1 }]
+                },
+                {
+                  "title": "Raspberry Pi",
+                  "mediaType": -1,
+                  "subtopics": [{ "title": "8/10", "mediaType": -1 }]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Areas of Interest",
+          "mediaType": -1,
+          "subtopics": [
+            { "title": "Robotics", "mediaType": -1 },
+            { "title": "IoT", "mediaType": -1 },
+            { "title": "Web Development", "mediaType": -1 },
+            { "title": "Project and Team Management", "mediaType": -1 }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Projects",
+      "mediaType": -1,
+      "subtopics": [
+        {
+          "title": "Robotics",
+          "mediaType": -1,
+          "subtopics": [
+            { "title": "Quadcopter Flight Controller", "mediaType": -1 },
+            { "title": "Self Balancing Bot", "mediaType": -1 },
+            { "title": "Rescue Bot", "mediaType": -1 },
+            { "title": "Alarobic Clock", "mediaType": -1 },
+            { "title": "Head Gesture Controlled Wheelchair", "mediaType": -1 },
+            { "title": "Water Tank Level Indicator", "mediaType": -1 }
+          ]
+        },
+        {
+          "title": "IoT and Web",
+          "mediaType": -1,
+          "subtopics": [{ "title": "Switch Simply", "mediaType": -1 }]
+        },
+        {
+          "title": "Web",
+          "mediaType": -1,
+          "subtopics": [
+            { "title": "Booking Management System", "mediaType": -1 }
+          ]
+        },
+        {
+          "title": "Soft",
+          "mediaType": -1,
+          "subtopics": [
+            { "title": "Event Registration", "mediaType": -1 },
+            { "title": "Whatsapp chat analyser", "mediaType": -1 }
+          ]
+        }
+      ]
+    }
+  ]
+}
