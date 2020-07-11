@@ -8,7 +8,7 @@ const Social = () => (
   <div>
     Looking for my{" "}
     <a
-      href={`http://${
+      href={`${
         SocialFields.subtopics.find((e) => e.title === "Resume").subtopics[0]
           .title
       }`}
@@ -18,7 +18,7 @@ const Social = () => (
     ?
     <br /> Connect with me on{" "}
     <a
-      href={`http://${
+      href={`${
         SocialFields.subtopics.find((e) => e.title === "LinkedIn").subtopics[0]
           .title
       }`}
@@ -26,14 +26,24 @@ const Social = () => (
       LinkedIn.
     </a>
     <br />
-    Have a loot at my{" "}
+    Have a look at my{" "}
     <a
-      href={`http://${
+      href={`${
         SocialFields.subtopics.find((e) => e.title === "GitHub").subtopics[0]
           .title
       }`}
     >
       Github Profile.
+    </a>{" "}
+    <br />
+    Drop me a{" "}
+    <a
+      href={`mailto:${
+        SocialFields.subtopics.find((e) => e.title === "Email").subtopics[1]
+          .title
+      }`}
+    >
+      mail.
     </a>{" "}
   </div>
 );
