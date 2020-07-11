@@ -7,74 +7,123 @@
       "mediaType": -1,
       "subtopics": [
         {
-          "title": "O2i",
+          "title": "Robotics Engineer",
           "mediaType": -1,
           "subtopics": [
             {
-              "title": "Made Projects for Paramilitary Forces",
-              "mediaType": -1
-            },
-            {
-              "title": "Robotics",
+              "title": "O2i",
               "mediaType": -1,
               "subtopics": [
-                { "title": "ATV", "mediaType": -1 },
                 {
-                  "title": "Drone",
+                  "title": "Highlights",
                   "mediaType": -1,
                   "subtopics": [
-                    { "title": "Surveillence", "mediaType": -1 },
-                    { "title": "Tilt Rotor Tricopter", "mediaType": -1 }
+                    {
+                      "title": "Made Projects for Paramilitary Forces",
+                      "mediaType": -1
+                    },
+                    { "title": "Techclubs at Amity Schools", "mediaType": -1 }
                   ]
                 },
-                { "title": "4 Wheel Surveillance Robot", "mediaType": -1 }
+                {
+                  "title": "Projects",
+                  "mediaType": -1,
+                  "subtopics": [
+                    {
+                      "title": "Robotics",
+                      "mediaType": -1,
+                      "subtopics": [
+                        { "title": "ATV", "mediaType": -1 },
+                        {
+                          "title": "Drone",
+                          "mediaType": -1,
+                          "subtopics": [
+                            { "title": "Surveillance", "mediaType": -1 },
+                            { "title": "Tilt Rotor Tricopter", "mediaType": -1 }
+                          ]
+                        },
+                        {
+                          "title": "4 Wheel Surveillance Robot",
+                          "mediaType": -1
+                        }
+                      ]
+                    },
+                    {
+                      "title": "AI",
+                      "mediaType": -1,
+                      "subtopics": [
+                        {
+                          "title": "Real time object detection",
+                          "mediaType": -1
+                        },
+                        {
+                          "title": "Ad Tracking in TV Channel",
+                          "mediaType": -1
+                        },
+                        {
+                          "title": "Suspicious Activity Detection",
+                          "mediaType": -1
+                        }
+                      ]
+                    },
+                    {
+                      "title": "IoT",
+                      "mediaType": -1,
+                      "subtopics": [
+                        { "title": "Backend APIs in nodejs", "mediaType": -1 },
+                        { "title": "Wearables", "mediaType": -1 }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "Duration",
+                  "mediaType": -1,
+                  "subtopics": [{ "title": "Jan'19-Jun'20", "mediaType": -1 }]
+                }
               ]
-            },
-            {
-              "title": "IoT",
-              "mediaType": -1,
-              "subtopics": [
-                { "title": "Backend APIs in nodejs", "mediaType": -1 },
-                { "title": "Wearables", "mediaType": -1 }
-              ]
-            },
-            {
-              "title": "AI",
-              "mediaType": -1,
-              "subtopics": [
-                { "title": "Real time object detection", "mediaType": -1 },
-                { "title": "Ad Tracking in TV Channel", "mediaType": -1 },
-                { "title": "Suspicious Activity Detection", "mediaType": -1 }
-              ]
-            },
-            { "title": "Techclubs at Amity Schools", "mediaType": -1 }
+            }
           ]
         },
         {
-          "title": "UCR JIIT",
+          "title": "Head Student Coordinator",
           "mediaType": -1,
           "subtopics": [
             {
-              "title": "Workshops",
+              "title": "UCR JIIT",
               "mediaType": -1,
               "subtopics": [
                 {
-                  "title": "Robotics",
+                  "title": "Workshops",
                   "mediaType": -1,
                   "subtopics": [
-                    { "title": "Manual", "mediaType": -1 },
-                    { "title": "Autonomous", "mediaType": -1 }
+                    {
+                      "title": "Robotics",
+                      "mediaType": -1,
+                      "subtopics": [
+                        { "title": "Manual", "mediaType": -1 },
+                        { "title": "Autonomous", "mediaType": -1 }
+                      ]
+                    },
+                    { "title": "IoT", "mediaType": -1 }
                   ]
                 },
-                { "title": "IoT", "mediaType": -1 }
-              ]
-            },
-            {
-              "title": "Events",
-              "mediaType": -1,
-              "subtopics": [
-                { "title": "Internal and External Affairs", "mediaType": -1 },
-                { "title": "14 events in 2016-18", "mediaType": -1 }
+                {
+                  "title": "Events",
+                  "mediaType": -1,
+                  "subtopics": [
+                    {
+                      "title": "Internal and External Affairs",
+                      "mediaType": -1
+                    },
+                    { "title": "14 events during 2016-18", "mediaType": -1 }
+                  ]
+                },
+                {
+                  "title": "Duration",
+                  "mediaType": -1,
+                  "subtopics": [{ "title": "Jul'17-Jun'18", "mediaType": -1 }]
+                }
               ]
             }
           ]
@@ -111,37 +160,32 @@
           "mediaType": -1,
           "subtopics": [
             {
-              "title": "2015",
+              "title": "2019",
               "mediaType": -1,
               "subtopics": [
                 {
-                  "title": "JIIT",
+                  "title": "Cyber Srishti, JIIT",
                   "mediaType": -1,
                   "subtopics": [
                     {
-                      "title": "Technocreed - Manual Robotics",
+                      "title": "Project Exibition",
                       "mediaType": -1,
                       "subtopics": [{ "title": "2nd", "mediaType": -1 }]
                     }
                   ]
-                },
+                }
+              ]
+            },
+            {
+              "title": "2017",
+              "mediaType": -1,
+              "subtopics": [
                 {
-                  "title": "SRM",
+                  "title": "Endeavour, KIET",
                   "mediaType": -1,
                   "subtopics": [
                     {
-                      "title": "Manual Robotics",
-                      "mediaType": -1,
-                      "subtopics": [{ "title": "2nd", "mediaType": -1 }]
-                    }
-                  ]
-                },
-                {
-                  "title": "Techfest, IIT Bombay",
-                  "mediaType": -1,
-                  "subtopics": [
-                    {
-                      "title": "Manual Robotics",
+                      "title": "LFR",
                       "mediaType": -1,
                       "subtopics": [{ "title": "2nd", "mediaType": -1 }]
                     }
@@ -196,32 +240,37 @@
               ]
             },
             {
-              "title": "2017",
+              "title": "2015",
               "mediaType": -1,
               "subtopics": [
                 {
-                  "title": "Endeavour, KIET",
+                  "title": "JIIT",
                   "mediaType": -1,
                   "subtopics": [
                     {
-                      "title": "LFR",
+                      "title": "Technocreed - Manual Robotics",
                       "mediaType": -1,
                       "subtopics": [{ "title": "2nd", "mediaType": -1 }]
                     }
                   ]
-                }
-              ]
-            },
-            {
-              "title": "2019",
-              "mediaType": -1,
-              "subtopics": [
+                },
                 {
-                  "title": "Cyber Srishti, JIIT",
+                  "title": "SRM",
                   "mediaType": -1,
                   "subtopics": [
                     {
-                      "title": "Project Exibition",
+                      "title": "Manual Robotics",
+                      "mediaType": -1,
+                      "subtopics": [{ "title": "2nd", "mediaType": -1 }]
+                    }
+                  ]
+                },
+                {
+                  "title": "Techfest, IIT Bombay",
+                  "mediaType": -1,
+                  "subtopics": [
+                    {
+                      "title": "Manual Robotics",
                       "mediaType": -1,
                       "subtopics": [{ "title": "2nd", "mediaType": -1 }]
                     }
@@ -238,13 +287,6 @@
       "mediaType": -1,
       "subtopics": [
         {
-          "title": "Intro",
-          "mediaType": -1,
-          "subtopics": [
-            { "title": "Hey, You've reached Harsh.", "mediaType": -1 }
-          ]
-        },
-        {
           "title": "DOB",
           "mediaType": -1,
           "subtopics": [{ "title": "03/10/1997", "mediaType": -1 }]
@@ -252,22 +294,100 @@
         {
           "title": "Location",
           "mediaType": -1,
-          "subtopics": [{ "title": "Delhi NCR", "mediaType": -1 }]
+          "subtopics": [
+            {
+              "title": "Hometown",
+              "mediaType": -1,
+              "subtopics": [{ "title": "Agra", "mediaType": -1 }]
+            },
+            {
+              "title": "Preferred Location",
+              "mediaType": -1,
+              "subtopics": [{ "title": "Delhi NCR", "mediaType": -1 }]
+            }
+          ]
         },
         {
           "title": "Education",
           "mediaType": -1,
           "subtopics": [
-            { "title": "DPS", "mediaType": -1 },
-            { "title": "JIIT", "mediaType": -1 }
+            {
+              "title": "Graduation",
+              "mediaType": -1,
+              "subtopics": [
+                {
+                  "title": "BTech (Computer Science)",
+                  "mediaType": -1,
+                  "subtopics": [
+                    {
+                      "title": "JIIT, Noida",
+                      "mediaType": -1,
+                      "subtopics": [
+                        {
+                          "title": "2015-19",
+                          "mediaType": -1,
+                          "subtopics": [{ "title": "5.7", "mediaType": -1 }]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Senior Secondary",
+              "mediaType": -1,
+              "subtopics": [
+                {
+                  "title": "CBSE",
+                  "mediaType": -1,
+                  "subtopics": [
+                    {
+                      "title": "DPS Agra",
+                      "mediaType": -1,
+                      "subtopics": [
+                        {
+                          "title": "2014-15",
+                          "mediaType": -1,
+                          "subtopics": [{ "title": "91.6%", "mediaType": -1 }]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "High School",
+              "mediaType": -1,
+              "subtopics": [
+                {
+                  "title": "CBSE",
+                  "mediaType": -1,
+                  "subtopics": [
+                    {
+                      "title": "DPS Agra",
+                      "mediaType": -1,
+                      "subtopics": [
+                        {
+                          "title": "2012-13",
+                          "mediaType": -1,
+                          "subtopics": [{ "title": "9.0", "mediaType": -1 }]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         },
         {
           "title": "Hobbies",
           "mediaType": -1,
           "subtopics": [
-            { "title": "Listening Music", "mediaType": -1 },
             { "title": "Sports", "mediaType": -1 },
+            { "title": "Listening Music", "mediaType": -1 },
             { "title": "Challenging Projects", "mediaType": -1 }
           ]
         },
@@ -283,7 +403,9 @@
             {
               "title": "Portfolio",
               "mediaType": -1,
-              "subtopics": [{ "title": "itsharsh.com", "mediaType": -1 }]
+              "subtopics": [
+                { "title": "https://itsharsh.com", "mediaType": -1 }
+              ]
             },
             {
               "title": "Email",
@@ -297,18 +419,22 @@
               "title": "LinkedIn",
               "mediaType": -1,
               "subtopics": [
-                { "title": "linkedin.itsharsh.com", "mediaType": -1 }
+                { "title": "http://linkedin.itsharsh.com", "mediaType": -1 }
               ]
             },
             {
               "title": "GitHub",
               "mediaType": -1,
-              "subtopics": [{ "title": "gh.itsharsh.com", "mediaType": -1 }]
+              "subtopics": [
+                { "title": "http://gh.itsharsh.com", "mediaType": -1 }
+              ]
             },
             {
               "title": "Resume",
               "mediaType": -1,
-              "subtopics": [{ "title": "resume.itsharsh.com", "mediaType": -1 }]
+              "subtopics": [
+                { "title": "http://resume.itsharsh.com", "mediaType": -1 }
+              ]
             }
           ]
         }
@@ -369,15 +495,9 @@
                   "subtopics": [{ "title": "7/10", "mediaType": -1 }]
                 },
                 {
-                  "title": "Java",
+                  "title": "JavaFX",
                   "mediaType": -1,
-                  "subtopics": [
-                    {
-                      "title": "JavaFX",
-                      "mediaType": -1,
-                      "subtopics": [{ "title": "7/10", "mediaType": -1 }]
-                    }
-                  ]
+                  "subtopics": [{ "title": "7/10", "mediaType": -1 }]
                 }
               ]
             },
@@ -403,7 +523,7 @@
               ]
             },
             {
-              "title": "Other",
+              "title": "Dev Tools",
               "mediaType": -1,
               "subtopics": [
                 {
@@ -490,35 +610,106 @@
       "mediaType": -1,
       "subtopics": [
         {
+          "title": "Soft",
+          "mediaType": -1,
+          "subtopics": [
+            {
+              "title": "Event Registration",
+              "link": "https://github.com/ucrjiit/EventRegistration",
+              "mediaType": -1
+            },
+            {
+              "title": "Whatsapp Chat Analyser",
+              "link": "https://github.com/itsharsh/WhatsApp-Chat-Analyser",
+              "mediaType": -1
+            }
+          ]
+        },
+        {
           "title": "Robotics",
           "mediaType": -1,
           "subtopics": [
-            { "title": "Quadcopter Flight Controller", "mediaType": -1 },
-            { "title": "Self Balancing Bot", "mediaType": -1 },
-            { "title": "Rescue Bot", "mediaType": -1 },
+            {
+              "title": "Quadcopter Flight Controller",
+              "link": "https://github.com/itsharsh/QuadcopterFlightController-Arduino-nRF24L01-MPU6050-PID",
+              "mediaType": -1
+            },
+            {
+              "title": "Self Balancing Bot",
+              "link": "https://github.com/itsharsh/SelfBalanceBot-Arduino-nRF24L01-MPU6050-PID",
+              "mediaType": -1
+            },
+            {
+              "title": "Rescue Bot",
+              "link": "https://github.com/itsharsh/RescueBot-RaspberryPi-Arduino-nRF24L01",
+              "mediaType": -1
+            },
             { "title": "Alarobic Clock", "mediaType": -1 },
-            { "title": "Head Gesture Controlled Wheelchair", "mediaType": -1 },
-            { "title": "Water Tank Level Indicator", "mediaType": -1 }
+            {
+              "title": "Head Gesture Controlled Wheelchair",
+              "link": "https://github.com/itsharsh/GestureControlledBot-Arduino-nRF24L01-MPU6050",
+              "mediaType": -1
+            },
+            {
+              "title": "Water Tank Level Indicator",
+              "mediaType": -1,
+              "subtopics": [
+                { "title": "http://home.itsharsh.com", "mediaType": -1 }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "IoT",
+          "mediaType": -1,
+          "subtopics": [
+            {
+              "title": "Smart Bus",
+              "link": "https://github.com/itsharsh/SmartBus-Arduino-ESP8266-GPS-GSM-RFID",
+              "mediaType": -1
+            }
           ]
         },
         {
           "title": "IoT and Web",
           "mediaType": -1,
-          "subtopics": [{ "title": "Switch Simply", "mediaType": -1 }]
+          "subtopics": [
+            {
+              "title": "Switch Simply",
+              "mediaType": -1,
+              "subtopics": [
+                { "title": "http://switchsimply.itsharsh.com", "mediaType": -1 }
+              ]
+            }
+          ]
         },
         {
           "title": "Web",
           "mediaType": -1,
           "subtopics": [
-            { "title": "Booking Management System", "mediaType": -1 }
-          ]
-        },
-        {
-          "title": "Soft",
-          "mediaType": -1,
-          "subtopics": [
-            { "title": "Event Registration", "mediaType": -1 },
-            { "title": "Whatsapp chat analyser", "mediaType": -1 }
+            {
+              "title": "Booking Management System",
+              "mediaType": -1,
+              "subtopics": [
+                { "title": "http://jdfarmhouse.itsharsh.com", "mediaType": -1 }
+              ]
+            },
+            {
+              "title": "Expense Manger",
+              "link": "https://github.com/itsharsh/Expensify",
+              "mediaType": -1,
+              "subtopics": [
+                { "title": "http://expensify.itsharsh.com", "mediaType": -1 }
+              ]
+            },
+            {
+              "title": "Indecision",
+              "link": "https://github.com/itsharsh/InDecision",
+              "mediaType": -1,
+              "subtopics": [
+                { "title": "http://indecision.itsharsh.com", "mediaType": -1 }
+              ]
+            }
           ]
         }
       ]
