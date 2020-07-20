@@ -8,7 +8,9 @@ const Topic = (props) => (
       (props.topic.subtopics[0].title.startsWith("http") ? (
         <a href={props.topic.subtopics[0].title}> - Link</a>
       ) : (
-        `: ${props.topic.subtopics.map((skill) => ` ${skill.title}`)}`
+        `: ${props.topic.subtopics.map(
+          (skill) => ` ${skill.title} (${skill.subtopics[0].title})`
+        )}`
       ))}
   </div>
 );
