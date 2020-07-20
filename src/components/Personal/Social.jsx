@@ -35,7 +35,16 @@ const Social = () => (
     >
       Github Profile.
     </a>{" "}
-    <br />
+    or{" "}
+    <a
+      href={`${
+        SocialFields.subtopics.find((e) => e.title === "Hackerrank")
+          .subtopics[0].title
+      }`}
+    >
+      Hackerrank Profile.
+      <br />
+    </a>{" "}
     Drop me a{" "}
     <a
       href={`mailto:${

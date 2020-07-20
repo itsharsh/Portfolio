@@ -416,6 +416,13 @@
               ]
             },
             {
+              "title": "Resume",
+              "mediaType": -1,
+              "subtopics": [
+                { "title": "http://resume.itsharsh.com", "mediaType": -1 }
+              ]
+            },
+            {
               "title": "LinkedIn",
               "mediaType": -1,
               "subtopics": [
@@ -430,10 +437,17 @@
               ]
             },
             {
-              "title": "Resume",
+              "title": "Twitter",
               "mediaType": -1,
               "subtopics": [
-                { "title": "http://resume.itsharsh.com", "mediaType": -1 }
+                { "title": "http://t.itsharsh.com", "mediaType": -1 }
+              ]
+            },
+            {
+              "title": "Hackerrank",
+              "mediaType": -1,
+              "subtopics": [
+                { "title": "http://hr.itsharsh.com", "mediaType": -1 }
               ]
             }
           ]
