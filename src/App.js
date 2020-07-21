@@ -1,19 +1,19 @@
-import React from "react";
-
-import Personal from "./components/Personal";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
+import React, { useState, useEffect } from "react";
+import Pages from "./pages";
 
 function App() {
-  return (
-    <div>
-      <Personal />
-      <br />
-      <Skills />
-      <br />
-      <Projects />
-    </div>
-  );
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    fetch("https://gitconnected.com/v1/portfolio/itsharsh")
+      .then((res) => res.json())
+      .then((user) => setUser(user));
+  }, []);
+
+  if (!user) {
+    return <div />;
+  }
+
+  return <Pages user={user} />;
 }
 
 export default App;
