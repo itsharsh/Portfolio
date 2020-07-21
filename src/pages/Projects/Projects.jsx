@@ -16,11 +16,19 @@ const Projects = ({ user }) => (
       <ul>
         {user.projects.map((project, i) => (
           <StyledProjectItem key={i}>
-            <StyledProjectTitle>{project.name}</StyledProjectTitle>
+            <StyledProjectTitle>
+              <a
+                href={project.website ? project.website : "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {project.displayName}
+              </a>
+            </StyledProjectTitle>
             <p>{project.summary}</p>
             <StyledSkillContainer>
               {[...project.languages, ...project.libraries].map((item, j) => (
-                <Pill key={j}></Pill>
+                <Pill key={j}>{item}</Pill>
               ))}
             </StyledSkillContainer>
           </StyledProjectItem>
