@@ -27,6 +27,14 @@ const Header = ({ user }) => {
               @{user.basics.username}
             </a>
           </h4>
+          <h5>{user.basics.headline}</h5>
+          <h5>Total Experience: {user.basics.yearsOfExperience}</h5>
+          <h5>
+            Mail:
+            <a href={`mailto:${user.basics.email}`}>{user.basics.email}</a>
+          </h5>
+          <h5>Contact: {user.basics.phone}</h5>
+          <h5>Hometown: {user.basics.region}</h5>
         </div>
       </StyledHeader>
       <div>
