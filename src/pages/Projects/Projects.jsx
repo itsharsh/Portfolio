@@ -1,4 +1,5 @@
 import React from "react";
+import { ArrowRight16 } from "@carbon/icons-react";
 
 import Layout from "../../components/Layout";
 
@@ -7,6 +8,8 @@ import {
   StyledProjectItem,
   StyledProjectTitle,
   StyledSkillContainer,
+  StyledProjectDemoLink,
+  StyledProjectSourceLink,
 } from "./styles";
 
 const Projects = ({ user }) => (
@@ -17,13 +20,25 @@ const Projects = ({ user }) => (
         {user.projects.map((project, i) => (
           <StyledProjectItem key={i}>
             <StyledProjectTitle>
-              <a
-                href={project.website ? project.website : "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {project.displayName}
-              </a>
+              {project.displayName}{" "}
+              {project.website && (
+                <StyledProjectDemoLink
+                  href={project.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Demo <ArrowRight16 />
+                </StyledProjectDemoLink>
+              )}{" "}
+              {project.githubUrl && (
+                <StyledProjectSourceLink
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Source Code <ArrowRight16 />
+                </StyledProjectSourceLink>
+              )}
             </StyledProjectTitle>
             <p>{project.summary}</p>
             <StyledSkillContainer>
