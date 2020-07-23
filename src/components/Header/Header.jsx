@@ -18,15 +18,6 @@ const Header = ({ user }) => {
         <StyledImage src={user.basics.picture} />
         <div>
           <h2>{user.basics.name}</h2>
-          <h4>
-            <a
-              href={`https://gitconnected.com/${user.basics.username}`}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              @{user.basics.username}
-            </a>
-          </h4>
           <h5>{user.basics.headline}</h5>
           <h5>Total Experience: {user.basics.yearsOfExperience}</h5>
           <h5>
@@ -39,7 +30,7 @@ const Header = ({ user }) => {
       </StyledHeader>
       <div>
         <StyledViewResumeLink
-          href={`https://gitconnected.com/${user.basics.username}/resume`}
+          href="https://resume.itsharsh.com"
           target="_blank"
           rel="noreferrer noopener"
         >
