@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^7.2.1",
     "carbon-components": "^10.16.0",
     "carbon-components-react": "^7.16.0",
+    "moment": "^2.27.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
