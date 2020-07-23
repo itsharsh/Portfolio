@@ -7,11 +7,20 @@ export const StyledWorkItem = styled.li`
   border-bottom: 1px solid ${white};
 `;
 
-export const StyledWorkTitle = styled.p`
+export const StyledJobTitle = styled.p`
+  font-size: 1.5rem;
   font-weight: bold;
+  display: inline;
 `;
 
-export const StyledJobTitle = styled.p`
+export const StyledWorkTitle = styled.p`
+  font-size: 1.25rem;
   font-weight: bold;
-  display: inline-block;
+  display: inline;
+`;
+
+export const StyledHighlight = styled.li`
+  margin-left: 2.5rem;
+  display: list-item;
+  list-style-type: circle;
 `;
