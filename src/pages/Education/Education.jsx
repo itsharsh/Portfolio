@@ -11,7 +11,7 @@ const Education = ({ user }) => (
     <ul>
       {user.education.map((education, i) => (
         <StyledEducationItem key={i}>
-          <StyledInstitute>{education.position}</StyledInstitute>
+          <StyledInstitute>{education.institution}</StyledInstitute>
           <div>
             <StyledDegree>
               {education.studyType}, {education.area}
