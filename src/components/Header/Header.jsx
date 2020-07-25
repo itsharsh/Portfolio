@@ -19,7 +19,7 @@ const Header = ({ user }) => {
         <div>
           <h2>{user.basics.name}</h2>
           <h5>{user.basics.headline}</h5>
-          <h5>Total Experience: {user.basics.yearsOfExperience}</h5>
+          <h5>Total Experience: {user.basics.yearsOfExperience} year(s)</h5>
           <h5>
             Mail:
             <a href={`mailto:${user.basics.email}`}>{user.basics.email}</a>
@@ -34,7 +34,7 @@ const Header = ({ user }) => {
           target="_blank"
           rel="noreferrer noopener"
         >
-          <span>Résumé</span>
+          <span>Resume</span>
           <ArrowRight16 />
         </StyledViewResumeLink>
       </div>

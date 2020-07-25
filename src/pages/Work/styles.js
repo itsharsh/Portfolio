@@ -23,4 +23,5 @@ export const StyledHighlight = styled.li`
   margin-left: 2.5rem;
   display: list-item;
   list-style-type: circle;
+  line-height: 1.6rem;
 `;

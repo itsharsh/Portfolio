@@ -18,10 +18,11 @@ export const StyledSkillContainer = styled.div`
 export const StyledProjectDemoLink = styled.a`
   display: inline-block;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 0.8rem;
   font-weight: bold;
   align-items: center;
-  border-radius: 0.5px;
+  margin-left: 1rem;
+  border-radius: 0.5rem;
   color: ${teal[80]};
   background-color: ${teal[50]};
   transition: background-color 250ms ease;
@@ -39,10 +40,11 @@ export const StyledProjectDemoLink = styled.a`
 export const StyledProjectSourceLink = styled.a`
   display: inline-block;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 0.8rem;
   font-weight: bold;
   align-items: center;
-  border-radius: 0.5px;
+  margin-left: 1rem;
+  border-radius: 0.5rem;
   color: ${purple[90]};
   background-color: ${purple[40]};
   transition: background-color 250ms ease;
