@@ -11,10 +11,10 @@ import {
   StyledHighlight,
 } from "./styles";
 
-const Work = ({ user }) => (
+const Experience = ({ user }) => (
   <Layout user={user}>
     <div>
-      <SectionTitle>Work</SectionTitle>
+      <SectionTitle>Experience</SectionTitle>
       <ul>
         {user.work.map((work, i) => (
           <StyledWorkItem key={i}>
@@ -40,4 +40,4 @@ const Work = ({ user }) => (
   </Layout>
 );
 
-export default Work;
+export default Experience;

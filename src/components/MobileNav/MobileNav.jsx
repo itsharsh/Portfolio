@@ -29,11 +29,11 @@ const MobileNav = () => (
             tooltipPosition="bottom"
           />
         </StyledNavLink>
-        <StyledNavLink to="/work">
+        <StyledNavLink to="/experience">
           <StyledNavButton
             hasIconOnly
             renderIcon={Portfolio32}
-            iconDescription="Work"
+            iconDescription="Experience"
             tooltipPosition="bottom"
           />
         </StyledNavLink>

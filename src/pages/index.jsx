@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Profile from "./Profile";
 import Projects from "./Projects";
-import Work from "./Work";
+import Experience from "./Experience";
 import Education from "./Education";
 
 const Pages = ({ user }) => {
@@ -16,8 +16,8 @@ const Pages = ({ user }) => {
         <Route path="/projects">
           <Projects user={user} />
         </Route>
-        <Route path="/work">
-          <Work user={user} />
+        <Route path="/experience">
+          <Experience user={user} />
         </Route>
         <Route path="/education">
           <Education user={user} />
