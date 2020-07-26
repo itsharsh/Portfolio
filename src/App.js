@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from "react";
+import Loader from "react-loader-spinner";
+
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
 import Pages from "./pages";
 
 function App() {
@@ -10,7 +14,15 @@ function App() {
   }, []);
 
   if (!user) {
-    return <div />;
+    return (
+      <Loader
+        type="Circles"
+        color="#00BFFF"
+        height={100}
+        width={100}
+        timeout={3000}
+      />
+    );
   }
 
   return <Pages user={user} />;
