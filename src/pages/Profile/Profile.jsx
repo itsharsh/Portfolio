@@ -15,8 +15,8 @@ const Profile = ({ user }) => (
       <SectionTitle>Skills</SectionTitle>
       <div>
         {user.skills.map((skill) => (
-          <span title={`${skill.rating}/5`}>
-            <Pill key={skill.name}>{skill.name}</Pill>
+          <span key={skill.name} title={`${skill.rating}/5`}>
+            <Pill>{skill.name}</Pill>
           </span>
         ))}
       </div>
