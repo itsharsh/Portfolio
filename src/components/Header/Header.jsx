@@ -52,7 +52,6 @@ const Header = ({ user }) => {
                     rel="noreferrer noopener"
                   >
                     {(() => {
-                      console.log(profile.network);
                       switch (profile.network) {
                         case "Facebook":
                           return <LogoFacebook32 />;
