@@ -3,7 +3,6 @@ import React from "react";
 import Layout from "../../components/Layout";
 
 import { SectionTitle, Paragraph, Pill } from "../../styles";
-import { StyledProfileLink } from "./styles";
 
 const Profile = ({ user }) => (
   <Layout user={user}>
@@ -20,19 +19,6 @@ const Profile = ({ user }) => (
           </span>
         ))}
       </div>
-    </div>
-    <div>
-      <SectionTitle>Profiles</SectionTitle>
-      <ul>
-        {user.basics.profiles.map((profile, i) => (
-          <StyledProfileLink key={profile.network}>
-            {i !== 0 && " | "}{" "}
-            <a href={profile.url} target="_blank" rel="noreferrer noopener">
-              {profile.network}
-            </a>
-          </StyledProfileLink>
-        ))}
-      </ul>
     </div>
   </Layout>
 );

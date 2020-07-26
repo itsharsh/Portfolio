@@ -12,7 +12,6 @@ export const StyledHeaderContainer = styled.div`
 
 export const StyledHeader = styled.div`
   display: flex;
-
   @media (max-width: 640px) {
     flex-direction: column;
   }
@@ -43,4 +42,14 @@ export const StyledViewResumeLink = styled.a`
     fill: white;
     margin-left: 8px;
   }
+`;
+
+export const StyledInfo = styled.h5`
+  line-height: 1.4rem;
+`;
+
+export const StyledProfileLink = styled.li`
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  display: inline-block;
+  font-size: 18px;
 `;
