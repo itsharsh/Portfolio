@@ -1,5 +1,11 @@
 import React from "react";
-import { User32, Code32, Portfolio32, Education32 } from "@carbon/icons-react";
+import {
+  User32,
+  Code32,
+  Portfolio32,
+  Education32,
+  Badge32,
+} from "@carbon/icons-react";
 
 import {
   StyledContainer,
@@ -42,6 +48,14 @@ const MobileNav = () => (
             hasIconOnly
             renderIcon={Education32}
             iconDescription="Education"
+            tooltipPosition="bottom"
+          />
+        </StyledNavLink>
+        <StyledNavLink to="/achievements">
+          <StyledNavButton
+            hasIconOnly
+            renderIcon={Badge32}
+            iconDescription="Achievements"
             tooltipPosition="bottom"
           />
         </StyledNavLink>

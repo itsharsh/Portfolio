@@ -5,6 +5,7 @@ import Profile from "./Profile";
 import Projects from "./Projects";
 import Experience from "./Experience";
 import Education from "./Education";
+import Achievements from "./Achievements";
 
 const Pages = ({ user }) => {
   return (
@@ -21,6 +22,9 @@ const Pages = ({ user }) => {
         </Route>
         <Route path="/education">
           <Education user={user} />
+        </Route>
+        <Route path="/achievements">
+          <Achievements user={user} />
         </Route>
       </Switch>
     </Router>

@@ -12,6 +12,7 @@ const items = [
   { name: "Projects", path: "/projects" },
   { name: "Experience", path: "/experience" },
   { name: "Education", path: "/education" },
+  { name: "Achievements", path: "/achievements" },
 ];
 
 const Sidebar = () => {
