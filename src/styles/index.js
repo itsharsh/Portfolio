@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { blue } from "@carbon/colors";
 
 export const SectionTitle = styled.h3`
+  font-weight: bold;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
 `;
@@ -17,7 +18,6 @@ export const Pill = styled.span`
   padding: 0.5rem 1rem;
   background-color: ${blue[20]};
   color: ${blue[70]};
-  border: 3px solid ${blue[70]};
   border-radius: 2px;
   font-weight: bold;
 `;

@@ -7,28 +7,26 @@ import Experience from "./Experience";
 import Education from "./Education";
 import Achievements from "./Achievements";
 
-const Pages = ({ user }) => {
-  return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Profile user={user} />
-        </Route>
-        <Route path="/projects">
-          <Projects user={user} />
-        </Route>
-        <Route path="/experience">
-          <Experience user={user} />
-        </Route>
-        <Route path="/education">
-          <Education user={user} />
-        </Route>
-        <Route path="/achievements">
-          <Achievements user={user} />
-        </Route>
-      </Switch>
-    </Router>
-  );
-};
+const Pages = ({ user }) => (
+  <Router>
+    <Switch>
+      <Route exact path="/">
+        <Profile user={user} />
+      </Route>
+      <Route path="/projects">
+        <Projects user={user} />
+      </Route>
+      <Route path="/experience">
+        <Experience user={user} />
+      </Route>
+      <Route path="/education">
+        <Education user={user} />
+      </Route>
+      <Route path="/achievements">
+        <Achievements user={user} />
+      </Route>
+    </Switch>
+  </Router>
+);
 
 export default Pages;

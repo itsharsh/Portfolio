@@ -23,8 +23,7 @@ export const StyledProjectDemoLink = styled.a`
   align-items: center;
   margin-left: 1rem;
   border-radius: 0.5rem;
-  color: ${teal[80]};
-  background-color: ${teal[50]};
+  background-color: ${teal[60]};
   transition: background-color 250ms ease;
 
   &:hover {
@@ -45,8 +44,7 @@ export const StyledProjectSourceLink = styled.a`
   align-items: center;
   margin-left: 1rem;
   border-radius: 0.5rem;
-  color: ${purple[90]};
-  background-color: ${purple[40]};
+  background-color: ${purple[60]};
   transition: background-color 250ms ease;
 
   &:hover {

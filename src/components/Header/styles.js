@@ -18,9 +18,14 @@ export const StyledHeader = styled.div`
 `;
 
 export const StyledImage = styled.img`
-  width: 200px;
+  width: 210px;
+  height: 210px;
   margin-right: 1rem;
   border-radius: 2px;
+`;
+
+export const StyledName = styled.h2`
+  font-weight: bold;
 `;
 
 export const StyledViewResumeLink = styled.a`
@@ -52,4 +57,11 @@ export const StyledProfileLink = styled.li`
   margin: 0.5rem 0.5rem 0.5rem 0;
   display: inline-block;
   font-size: 18px;
+
+  svg {
+    color: white;
+  }
+  svg:hover {
+    color: teal;
+  }
 `;

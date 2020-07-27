@@ -13,6 +13,7 @@ import {
   StyledHeaderContainer,
   StyledHeader,
   StyledImage,
+  StyledName,
   StyledViewResumeLink,
   StyledInfo,
   StyledProfileLink,
@@ -26,17 +27,18 @@ const Header = ({ user }) => {
       <StyledHeader>
         <StyledImage src={user.basics.picture} />
         <div>
-          <h2>{user.basics.name}</h2>
+          <StyledName>{user.basics.name}</StyledName>
           <StyledInfo>{user.basics.headline}</StyledInfo>
           <StyledInfo>
             Total Experience: {user.basics.yearsOfExperience} year(s)
           </StyledInfo>
           <StyledInfo>
-            Mail:
+            Mail:{" "}
             <a href={`mailto:${user.basics.email}`}>{user.basics.email}</a>
           </StyledInfo>
           <StyledInfo>Contact: {user.basics.phone}</StyledInfo>
           <StyledInfo>Hometown: {user.basics.region}</StyledInfo>
+          <StyledInfo>Preferred Location: Delhi NCR</StyledInfo>
           <ul>
             {user.basics.profiles
               .filter(
