@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { white, teal } from "@carbon/colors";
+import { white, cyan, teal } from "@carbon/colors";
 
 export const StyledProjectItem = styled.li`
   margin-top: 1rem;
@@ -44,7 +44,7 @@ export const StyledProjectSourceLink = styled.a`
   align-items: center;
   margin-left: 1rem;
   border-radius: 0.5rem;
-  background-color: #ad6989
+  background-color: ${cyan[80]};
   transition: background-color 250ms ease;
 
   &:hover {
