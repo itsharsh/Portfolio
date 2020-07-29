@@ -14,7 +14,7 @@ import {
   StyledHeader,
   StyledImage,
   StyledName,
-  StyledViewResumeLink,
+  StyledLink,
   StyledInfo,
   StyledProfileLink,
 } from "./styles";
@@ -74,14 +74,22 @@ const Header = ({ user }) => {
         </div>
       </StyledHeader>
       <div>
-        <StyledViewResumeLink
+        <StyledLink
+          href="https://cv.itsharsh.com"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <span>CV</span>
+          <ArrowRight16 />
+        </StyledLink>
+        <StyledLink
           href="https://resume.itsharsh.com"
           target="_blank"
           rel="noreferrer noopener"
         >
           <span>Resume</span>
           <ArrowRight16 />
-        </StyledViewResumeLink>
+        </StyledLink>
       </div>
     </StyledHeaderContainer>
   );

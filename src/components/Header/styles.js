@@ -28,7 +28,7 @@ export const StyledName = styled.h2`
   font-weight: bold;
 `;
 
-export const StyledViewResumeLink = styled.a`
+export const StyledLink = styled.a`
   display: flex;
   text-decoration: none;
   padding: 0.75rem;
