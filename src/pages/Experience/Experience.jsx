@@ -20,7 +20,10 @@ const Experience = ({ user }) => (
           <StyledWorkItem key={i}>
             <StyledJobTitle>{work.position}</StyledJobTitle> ({" "}
             {moment(work.startDate).format("MMM, YYYY")} to{" "}
-            {moment(work.endDate).format("MMM, YYYY")})
+            {work.endDate
+              ? moment(work.endDate).format("MMM, YYYY")
+              : "Present"}
+            )
             <div>
               <StyledWorkTitle>{work.company}</StyledWorkTitle>
               <span>, {work.location}</span>
