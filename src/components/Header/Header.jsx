@@ -36,7 +36,6 @@ const Header = ({ user }) => {
             Mail:{" "}
             <a href={`mailto:${user.basics.email}`}>{user.basics.email}</a>
           </StyledInfo>
-          <StyledInfo>Contact: {user.basics.phone}</StyledInfo>
           <StyledInfo>Hometown: {user.basics.region}</StyledInfo>
           <StyledInfo>Preferred Location: Delhi NCR</StyledInfo>
           <ul>
