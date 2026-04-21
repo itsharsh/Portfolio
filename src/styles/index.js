@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { blue, teal } from "@carbon/colors";
+import { teal } from "@carbon/colors";
 
 export const SectionTitle = styled.h2`
   font-weight: 700;
