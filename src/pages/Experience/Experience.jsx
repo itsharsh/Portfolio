@@ -3,7 +3,7 @@ import moment from "moment";
 
 import Layout from "../../components/Layout";
 
-import { SectionTitle, Paragraph } from "../../styles";
+import { SectionTitle, Paragraph, StyledTile } from "../../styles";
 import {
   StyledWorkItem,
   StyledJobTitle,
@@ -17,26 +17,34 @@ const Experience = ({ user }) => (
       <SectionTitle>Experience</SectionTitle>
       <ul>
         {user.work.map((work, i) => (
-          <StyledWorkItem key={i}>
-            <StyledJobTitle>{work.position}</StyledJobTitle> ({" "}
-            {moment(work.startDate).format("MMM, YYYY")} to{" "}
-            {work.endDate
-              ? moment(work.endDate).format("MMM, YYYY")
-              : "Present"}
-            )
-            <div>
-              <StyledWorkTitle>{work.company}</StyledWorkTitle>
-              <span>, {work.location}</span>
-              {work.summary && <Paragraph>{work.summary}</Paragraph>}
-            </div>
-            <div>
-              <ul>
-                {work.highlights.map((highlight, i) => (
-                  <StyledHighlight key={i}>{highlight} </StyledHighlight>
-                ))}
-              </ul>
-            </div>
-          </StyledWorkItem>
+          <StyledTile key={i}>
+            <StyledWorkItem>
+              <StyledJobTitle>{work.position}</StyledJobTitle> 
+              <div style={{ color: '#00d1b2', fontWeight: 'bold', marginBottom: '1rem' }}>
+                {moment(work.startDate).format("MMM YYYY")} to{" "}
+                {work.endDate
+                  ? moment(work.endDate).format("MMM YYYY")
+                  : "Present"}
+              </div>
+              
+              <div>
+                <StyledWorkTitle>{work.company}</StyledWorkTitle>
+                <span style={{ color: '#8d8d8d' }}>, {work.location}</span>
+                {work.summary && <Paragraph style={{ marginTop: '1rem', color: '#e0e0e0' }}>{work.summary}</Paragraph>}
+              </div>
+              
+              <div style={{ marginTop: '1.5rem' }}>
+                <ul style={{ listStyle: 'none', padding: 0 }}>
+                  {work.highlights.map((highlight, i) => (
+                    <StyledHighlight key={i}>
+                      <span style={{ color: '#00d1b2', marginRight: '0.5rem' }}>▹</span>
+                      {highlight} 
+                    </StyledHighlight>
+                  ))}
+                </ul>
+              </div>
+            </StyledWorkItem>
+          </StyledTile>
         ))}
       </ul>
     </div>

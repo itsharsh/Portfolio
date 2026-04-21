@@ -1,10 +1,10 @@
 import React from "react";
 import {
-  User32,
-  Code32,
-  Portfolio32,
-  Education32,
-  Badge32,
+  User,
+  Code,
+  Portfolio,
+  Education,
+  Badge,
 } from "@carbon/icons-react";
 
 import {
@@ -22,7 +22,7 @@ const MobileNav = () => (
         <StyledNavLink to="/">
           <StyledNavButton
             hasIconOnly
-            renderIcon={User32}
+            renderIcon={User}
             iconDescription="Profile"
             tooltipPosition="bottom"
           />
@@ -30,7 +30,7 @@ const MobileNav = () => (
         <StyledNavLink to="/projects">
           <StyledNavButton
             hasIconOnly
-            renderIcon={Code32}
+            renderIcon={Code}
             iconDescription="Projects"
             tooltipPosition="bottom"
           />
@@ -38,7 +38,7 @@ const MobileNav = () => (
         <StyledNavLink to="/experience">
           <StyledNavButton
             hasIconOnly
-            renderIcon={Portfolio32}
+            renderIcon={Portfolio}
             iconDescription="Experience"
             tooltipPosition="bottom"
           />
@@ -46,7 +46,7 @@ const MobileNav = () => (
         <StyledNavLink to="/education">
           <StyledNavButton
             hasIconOnly
-            renderIcon={Education32}
+            renderIcon={Education}
             iconDescription="Education"
             tooltipPosition="bottom"
           />
@@ -54,7 +54,7 @@ const MobileNav = () => (
         <StyledNavLink to="/achievements">
           <StyledNavButton
             hasIconOnly
-            renderIcon={Badge32}
+            renderIcon={Badge}
             iconDescription="Achievements"
             tooltipPosition="bottom"
           />

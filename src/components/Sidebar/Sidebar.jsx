@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import {
   SideNavItems,
   SideNavLink,
-} from "carbon-components-react/lib/components/UIShell";
+} from "carbon-components-react";
 
 import { StyledSideNav } from "./styles";
 

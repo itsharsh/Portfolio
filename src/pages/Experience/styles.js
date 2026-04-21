@@ -1,27 +1,25 @@
 import styled from "styled-components";
-import { white } from "@carbon/colors";
+import { teal } from "@carbon/colors";
 
-export const StyledWorkItem = styled.li`
-  margin-top: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid ${white};
+export const StyledWorkItem = styled.div`
+  padding-bottom: 0.5rem;
 `;
 
-export const StyledJobTitle = styled.p`
-  font-size: 1.5rem;
-  font-weight: bold;
-  display: inline;
+export const StyledJobTitle = styled.h3`
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
 `;
 
-export const StyledWorkTitle = styled.p`
+export const StyledWorkTitle = styled.span`
   font-size: 1.25rem;
-  font-weight: bold;
-  display: inline;
+  font-weight: 600;
+  color: ${teal[30]};
 `;
 
 export const StyledHighlight = styled.li`
-  margin-left: 2.5rem;
-  display: list-item;
-  list-style-type: circle;
-  line-height: 1.6rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  color: #d1d1d1;
 `;

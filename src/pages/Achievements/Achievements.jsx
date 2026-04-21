@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight16 } from "@carbon/icons-react";
+import { ArrowRight } from "@carbon/icons-react";
 
 import Layout from "../../components/Layout";
 
@@ -25,7 +25,7 @@ const Achievements = ({ user }) => (
               target="_blank"
               rel="noopener noreferrer"
             >
-              View <ArrowRight16 />
+              View <ArrowRight />
             </StyledLink>
           </StyledTitle>
           <StyledIssuer>{publication.publisher}</StyledIssuer>

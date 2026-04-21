@@ -1,58 +1,55 @@
 import styled from "styled-components";
-import { white, cyan, teal } from "@carbon/colors";
+import { teal } from "@carbon/colors";
 
-export const StyledProjectItem = styled.li`
-  margin-top: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid ${white};
+export const StyledProjectItem = styled.div`
+  padding-bottom: 0.5rem;
 `;
 
-export const StyledProjectTitle = styled.h4`
-  font-weight: bold;
+export const StyledProjectTitle = styled.h3`
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.5px;
 `;
 
 export const StyledSkillContainer = styled.div`
-  margin-top: 1.2rem;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 export const StyledProjectDemoLink = styled.a`
-  display: inline-block;
-  text-decoration: none;
-  padding: 0.3rem 0.8rem;
-  font-weight: bold;
+  display: inline-flex;
   align-items: center;
-  margin-left: 1rem;
-  border-radius: 0.5rem;
-  background-color: ${teal[60]};
-  transition: background-color 250ms ease;
+  text-decoration: none;
+  font-weight: 600;
+  color: ${teal[40]};
+  transition: opacity 0.2s ease;
 
   &:hover {
-    background-color: #2ecc40;
+    opacity: 0.8;
   }
 
   svg {
-    fill: white;
-    margin-left: 8px;
+    margin-left: 4px;
+    fill: currentColor;
   }
 `;
 
 export const StyledProjectSourceLink = styled.a`
-  display: inline-block;
-  text-decoration: none;
-  padding: 0.3rem 0.8rem;
-  font-weight: bold;
+  display: inline-flex;
   align-items: center;
-  margin-left: 1rem;
-  border-radius: 0.5rem;
-  background-color: ${cyan[80]};
-  transition: background-color 250ms ease;
+  text-decoration: none;
+  font-weight: 600;
+  color: #8d8d8d;
+  transition: color 0.2s ease;
 
   &:hover {
-    background-color: #2ecc4f;
+    color: ${teal[30]};
   }
 
   svg {
-    fill: white;
-    margin-left: 8px;
+    margin-left: 4px;
+    fill: currentColor;
   }
 `;
