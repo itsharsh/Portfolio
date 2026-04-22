@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { useIntent } from '../../context/IntentContext';
 
 const AboutHero = styled.div`
-  padding: 2rem 0;
+  padding: 0 0 2rem 0;
   border-bottom: 1px solid ${theme.colors.border};
   margin-bottom: 2rem;
 `;
@@ -39,7 +39,7 @@ const About = ({ user }) => {
   // Formatting subject line based on intent
   let subject = "Hello Harsh";
   let body = "Hi Harsh,\n\nI visited your portfolio and wanted to reach out regarding...";
-  
+
   if (intent === 'hiring') {
     subject = "Full-Time Engineering Opportunity for Harsh";
     body = "Hi Harsh,\n\nI was impressed by your portfolio and leadership background. We are looking to fill a role and think you might be a fit...\n\nLet's connect!";
@@ -54,7 +54,7 @@ const About = ({ user }) => {
   let mantraTitle = "Engineering Philosophy";
   let mantra1 = `"Write code that is easy to delete, not easy to extend. Focus on modularity, testability, and delivering value quickly."`;
   let mantra2 = `"Hope for the best, prepare for the worst."`;
-  
+
   if (intent === 'hiring') {
     mantraTitle = "Leadership & Scale";
     mantra1 = `"AI might automate tasks and even write code, but true engineering is about the mindset—understanding the deep root of a problem before crafting the solution."`;
@@ -70,7 +70,7 @@ const About = ({ user }) => {
   }
 
   return (
-    <Container>
+    <Container className="fade-in">
       <AboutHero>
         <Grid>
           <Column lg={10} md={8} sm={4}>
@@ -90,8 +90,8 @@ const About = ({ user }) => {
       <Grid style={{ marginBottom: '2rem' }}>
         <Column lg={7} md={8} sm={4} style={{ paddingRight: '2rem' }}>
           <StyledTile style={{ padding: '1.5rem !important', marginBottom: '1.5rem' }}>
-            <h4 style={{ 
-              fontFamily: theme.fonts.technical, 
+            <h4 style={{
+              fontFamily: theme.fonts.technical,
               color: theme.colors.primary,
               textTransform: 'uppercase',
               letterSpacing: '0.05em',
@@ -124,32 +124,32 @@ const About = ({ user }) => {
             <p>Let's discuss how we can work together.</p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '2rem' }}>
-              <Button 
-                as="a" 
-                href={mailtoLink} 
-                size="lg" 
+              <Button
+                as="a"
+                href={mailtoLink}
+                size="lg"
                 style={{ width: '100%', justifyContent: 'center' }}
               >
                 Send Message via Email
               </Button>
-              <Button 
-                as="a" 
-                href={linkedin} 
-                target="_blank" 
+              <Button
+                as="a"
+                href={linkedin}
+                target="_blank"
                 rel="noreferrer"
-                kind="secondary" 
-                size="lg" 
+                kind="secondary"
+                size="lg"
                 style={{ width: '100%', justifyContent: 'center', backgroundColor: '#161616', border: `1px solid ${theme.colors.border}`, color: 'white' }}
               >
                 Connect on LinkedIn
               </Button>
-              <Button 
-                as="a" 
-                href={github} 
-                target="_blank" 
+              <Button
+                as="a"
+                href={github}
+                target="_blank"
                 rel="noreferrer"
-                kind="tertiary" 
-                size="lg" 
+                kind="tertiary"
+                size="lg"
                 style={{ width: '100%', justifyContent: 'center', color: theme.colors.textMuted }}
               >
                 View Code on GitHub

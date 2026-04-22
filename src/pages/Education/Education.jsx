@@ -4,14 +4,14 @@ import { StyledTile, SectionHeader, Container, theme } from '../../styles';
 import styled from 'styled-components';
 
 const EducationHero = styled.div`
-  padding: 1.5rem 0;
+  padding: 0 0 1.5rem 0;
   border-bottom: 1px solid ${theme.colors.border};
   margin-bottom: 2rem;
 `;
 
 const EducationCard = styled(StyledTile)`
   margin-bottom: 2rem;
-  
+
   .institution {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
@@ -40,7 +40,7 @@ const EducationCard = styled(StyledTile)`
 
 const Education = ({ user }) => {
   return (
-    <Container>
+    <Container className="fade-in">
       <EducationHero>
         <SectionHeader style={{ fontSize: '4rem', marginBottom: '1rem' }}>
           Academic Foundation

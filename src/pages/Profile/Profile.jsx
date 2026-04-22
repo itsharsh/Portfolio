@@ -1,15 +1,15 @@
 import React from 'react';
 import { Grid, Column, Button } from '@carbon/react';
-import { ArrowRight, Code, Cloud, DataBase, Events, Video, LogoInstagram, LogoYoutube, Launch, Catalog } from '@carbon/icons-react';
-import { 
-  StyledTile, 
-  HeroHeadline, 
-  HeroSubtitle, 
-  TechPill, 
-  Container, 
+import { ArrowRight, Code, Cloud, DataBase, Events, Video, LogoInstagram, LogoYoutube, Launch } from '@carbon/icons-react';
+import {
+  StyledTile,
+  HeroHeadline,
+  HeroSubtitle,
+  TechPill,
+  Container,
   SectionHeader,
   ProjectActionBtn,
-  theme 
+  theme
 } from '../../styles';
 import styled from 'styled-components';
 import { useIntent } from '../../context/IntentContext';
@@ -44,7 +44,7 @@ const StatusPill = styled.div`
 const CategoryCard = styled(StyledTile)`
   position: relative;
   height: 100%;
-  
+
   .icon {
     background-color: ${theme.colors.surfaceTonal};
     width: 48px;
@@ -72,7 +72,7 @@ const MasonryGrid = styled.div`
   -webkit-column-gap: 2rem;
   -moz-column-gap: 2rem;
   column-gap: 2rem;
-  
+
   @media (min-width: 1056px) {
     -webkit-column-count: 2;
     -moz-column-count: 2;
@@ -158,18 +158,16 @@ const categoryIcons = {
 
 const Profile = ({ user }) => {
   const { intent } = useIntent();
-  const linkedin = formatUrl(user.basics.profiles?.find(p => p.network === 'LinkedIn')?.url);
-  const resume = user.basics.pdf || user.basics.website || linkedin;
 
   // Determine Hero Messaging based on intent
   let heroSubline = "7+ Years of Engineering Excellence.";
   let heroSummary = user.basics.summary || "I build resilient, high-performance systems. My work focuses on scalable architectures, clean code, and solving complex technical challenges with precision.";
-  
+
   // Dynamic Mantra variables
   let mantraTitle = "Engineering Vision";
   let mantra1 = `"Write code that is easy to delete, not easy to extend. Focus on modularity, testability, and delivering value quickly."`;
   let mantra2 = `"Hope for the best, prepare for the worst."`;
-  
+
   if (intent === 'hiring') {
     heroSubline = "Full Stack Engineer & Team Leader.";
     heroSummary = "With a proven track record of driving scale and agility—from modernizing complex monoliths at Dhwani RIS to optimizing massive IAM architectures at Chegg. I bring comprehensive end-to-end expertise across modern stacks and robust system architecture.";
@@ -205,27 +203,13 @@ const Profile = ({ user }) => {
         <HeroSubtitle style={{ maxWidth: '90%' }}>
           {heroSummary}
         </HeroSubtitle>
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '2rem' }}>
-          {intent === 'mentorship' ? (
+        {intent === 'mentorship' && (
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '2rem' }}>
             <Button renderIcon={ArrowRight} size="lg" as="a" href="https://www.geeksforgeeks.org/profile/itsharsh/" target="_blank">
               Book Mentorship Session
             </Button>
-          ) : (
-            <Button renderIcon={ArrowRight} size="lg" as="a" href="/projects">
-              View Architecture Projects
-            </Button>
-          )}
-          <Button 
-            kind="ghost" 
-            size="lg" 
-            as="a"
-            href={resume}
-            target="_blank"
-            style={{ color: theme.colors.text, border: `1px solid ${theme.colors.border}`, padding: '0 2rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-          >
-            Read Resume
-          </Button>
-        </div>
+          </div>
+        )}
       </Column>
       <Column lg={5} md={8} sm={4}>
         <StyledTile style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', border: `1px solid ${theme.colors.primary}40`, backgroundColor: `${theme.colors.primary}05` }}>
@@ -248,9 +232,9 @@ const Profile = ({ user }) => {
         {user.work?.map((job, idx) => (
           <Column lg={4} md={4} sm={4} key={idx}>
             <CareerTile>
-              <div style={{ 
-                fontFamily: theme.fonts.technical, 
-                color: theme.colors.primary, 
+              <div style={{
+                fontFamily: theme.fonts.technical,
+                color: theme.colors.primary,
                 fontSize: '0.8rem',
                 marginBottom: '0.5rem',
                 textTransform: 'uppercase'
@@ -302,14 +286,14 @@ const Profile = ({ user }) => {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
                 <h3 style={{ fontSize: '1.5rem' }}>{project.name}</h3>
               </div>
-              
+
               {(project.website && project.website !== '#' && !project.website.includes('github.com')) && (
-                <div style={{ 
-                  width: '100%', borderRadius: '4px', overflow: 'hidden', marginBottom: '1.5rem', 
-                  position: 'relative', paddingTop: '35%', backgroundColor: theme.colors.border, border: `1px solid ${theme.colors.border}` 
+                <div style={{
+                  width: '100%', borderRadius: '4px', overflow: 'hidden', marginBottom: '1.5rem',
+                  position: 'relative', paddingTop: '35%', backgroundColor: theme.colors.border, border: `1px solid ${theme.colors.border}`
                 }}>
-                  <iframe 
-                    src={formatUrl(project.website)} 
+                  <iframe
+                    src={formatUrl(project.website)}
                     title={`${project.name} Preview`}
                     sandbox="allow-scripts allow-same-origin"
                     loading="lazy"
@@ -328,19 +312,19 @@ const Profile = ({ user }) => {
               </div>
               <div style={{ marginTop: 'auto', display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                 {(project.website && !project.website.includes('github.com')) && (
-                  <ProjectActionBtn 
-                    $primary 
-                    href={formatUrl(project.website)} 
-                    target="_blank" 
+                  <ProjectActionBtn
+                    $primary
+                    href={formatUrl(project.website)}
+                    target="_blank"
                     rel="noreferrer"
                   >
                     <Launch size={16} /> Live Demo
                   </ProjectActionBtn>
                 )}
                 {(project.githubUrl || project.repositoryUrl) && (
-                  <ProjectActionBtn 
-                    href={formatUrl(project.githubUrl || project.repositoryUrl)} 
-                    target="_blank" 
+                  <ProjectActionBtn
+                    href={formatUrl(project.githubUrl || project.repositoryUrl)}
+                    target="_blank"
                     rel="noreferrer"
                   >
                     <Code size={16} /> Source Code

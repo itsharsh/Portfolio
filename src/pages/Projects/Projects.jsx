@@ -87,7 +87,7 @@ const Projects = ({ user }) => {
   });
 
   return (
-    <Container>
+    <Container className="fade-in">
       <ProjectsHero>
         <Grid>
           <Column lg={16} md={8} sm={4}>

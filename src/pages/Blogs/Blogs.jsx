@@ -61,7 +61,7 @@ export const MediumArticles = ({ hideHeader }) => {
       .then(res => res.json())
       .then(data => {
         if (data && data.items && data.items.length > 0) {
-          setArticles(data.items.slice(0, hideHeader ? 2 : 4));
+          setArticles(data.items);
         } else {
           setError(true);
         }
@@ -97,7 +97,7 @@ export const MediumArticles = ({ hideHeader }) => {
           )}
         </Column>
       ) : (
-        articles.map((article, i) => (
+        articles.slice(0, hideHeader ? 2 : 4).map((article, i) => (
           <Column lg={hideHeader ? 8 : 8} md={8} sm={4} key={i} style={{ marginBottom: '2rem' }}>
             <BlogCard>
               <LogoMedium size={32} style={{ fill: theme.colors.text, marginBottom: '1rem' }} />
@@ -136,7 +136,7 @@ export const GFGArticles = ({ hideHeader }) => {
     fetchSecureProxy('https://communityapi.geeksforgeeks.org/post/user/itsharsh/?fetch_type=posts&page=1')
       .then(data => {
         if (data && data.results) {
-          setGfgBlogs(data.results.slice(0, hideHeader ? 2 : 4)); 
+          setGfgBlogs(data.results); 
         } else {
           setError(true);
         }
@@ -165,7 +165,7 @@ export const GFGArticles = ({ hideHeader }) => {
           <p style={{ color: theme.colors.textMuted }}>Unable to load blogs directly. Please visit the GeeksforGeeks profile.</p>
         </Column>
       ) : (
-        gfgBlogs.map((blog, i) => (
+        gfgBlogs.slice(0, hideHeader ? 2 : 4).map((blog, i) => (
           <Column lg={hideHeader ? 8 : 4} md={4} sm={4} key={i} style={{ marginBottom: '2rem' }}>
             <BlogCard style={{ justifyContent: 'center' }}>
               <div className="title-row" style={{ marginBottom: '0.5rem' }}>

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 
 const ExperienceHero = styled.div`
-  padding: 1.5rem 0;
+  padding: 0 0 1.5rem 0;
   border-bottom: 1px solid ${theme.colors.border};
   margin-bottom: 2rem;
 `;
@@ -120,7 +120,7 @@ const Experience = ({ user }) => {
   const groupedSkills = categorizeSkills(user.skills);
 
   return (
-    <Container>
+    <Container className="fade-in">
       <ExperienceHero>
         <SectionHeader style={{ fontSize: '4rem', marginBottom: '1rem' }}>
           Experience & Skills
@@ -158,8 +158,8 @@ const Experience = ({ user }) => {
                     </ul>
                   )}
                 </div>
-                
-                
+
+
                 {/* Fallback to generic tags based on the position if none provided by GitConnected highlight schema yet */}
                 <div style={{ marginTop: '1rem', display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                     {(work.name.includes('Chegg')) && (
