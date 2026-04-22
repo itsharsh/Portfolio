@@ -1,54 +1,58 @@
-import styled from "styled-components";
-import { SideNav } from "carbon-components-react";
-import { teal } from "@carbon/colors";
+import styled from 'styled-components';
+import { SideNav, SideNavItems, SideNavLink } from '@carbon/react';
+import { theme } from '../../styles';
 
 export const StyledSideNav = styled(SideNav)`
-  background-color: #161616;
-  border-right: 1px solid #393939;
-  z-index: 10;
+  background-color: ${theme.colors.surface} !important;
+  border-right: 1px solid ${theme.colors.border} !important;
+  width: 250px !important;
 
-  &.cds--side-nav {
-    width: 256px;
+  // Header branding area for the sidebar
+  &::before {
+    content: 'TECHNICAL PORTFOLIO';
+    display: block;
+    padding: 2rem 1.5rem;
+    font-family: ${theme.fonts.technical};
+    font-size: 0.7rem;
+    color: ${theme.colors.textMuted};
+    letter-spacing: 0.2em;
+    border-bottom: 1px solid ${theme.colors.border};
+  }
+`;
+
+export const StyledSideNavItems = styled(SideNavItems)`
+  margin-top: 1rem;
+`;
+
+export const StyledSideNavLink = styled(SideNavLink)`
+  background-color: transparent !important;
+  height: 3rem !important;
+  
+  span {
+    font-family: ${theme.fonts.technical} !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    color: ${theme.colors.textMuted} !important;
   }
 
-  .cds--side-nav__items {
-    padding-top: 3rem;
-  }
-
-  .cds--side-nav__link {
-    height: 3.5rem;
-    padding-left: 2rem;
-    color: #c6c6c6;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-
-    &:hover {
-      background-color: #262626;
-      color: ${teal[40]};
-    }
-  }
-
-  .cds--side-nav__link--current {
-    background-color: rgba(0, 157, 154, 0.1);
-    color: ${teal[30]};
-    border-right: 4px solid ${teal[40]};
+  &[aria-current='page'], &.cds--side-nav__link--active {
+    background-color: ${theme.colors.surfaceTonal} !important;
     
     &::before {
-      display: none;
+      background-color: ${theme.colors.primary} !important;
     }
-    
-    .cds--side-nav__link-text {
-      color: ${teal[30]};
-      font-weight: 700;
+
+    span {
+      color: ${theme.colors.primary} !important;
     }
   }
 
-  .cds--side-nav__link-text {
-    font-size: 1rem;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-  }
-
-  @media (max-width: 640px) {
-    display: none;
+  &:hover {
+    background-color: ${theme.colors.surfaceTonal} !important;
+    span {
+      color: ${theme.colors.text} !important;
+    }
   }
 `;

@@ -1,30 +1,366 @@
-import React from "react";
+import React from 'react';
+import { Grid, Column, Button } from '@carbon/react';
+import { ArrowRight, Code, Cloud, DataBase, Events, Video, LogoInstagram, LogoYoutube, Launch, Catalog } from '@carbon/icons-react';
+import { 
+  StyledTile, 
+  HeroHeadline, 
+  HeroSubtitle, 
+  TechPill, 
+  Container, 
+  SectionHeader,
+  ProjectActionBtn,
+  theme 
+} from '../../styles';
+import styled from 'styled-components';
+import { useIntent } from '../../context/IntentContext';
+import { categorizeSkills, formatUrl } from '../../utils';
 
-import Layout from "../../components/Layout";
+const HIGH_DEMAND_SKILLS = ['NodeJS', 'ReactJS', 'Auth0', 'MongoDB', 'Go', 'Microservices', 'AWS', 'Python', 'Kafka', 'Docker'];
 
-import { SectionTitle, Paragraph, Pill, StyledTile } from "../../styles";
+const StatusPill = styled.div`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: ${theme.colors.surfaceTonal};
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-family: ${theme.fonts.technical};
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: ${theme.colors.textMuted};
+  margin-bottom: 2rem;
 
-const Profile = ({ user }) => (
-  <Layout user={user}>
-    <StyledTile>
-      <SectionTitle style={{ marginTop: 0 }}>About Me</SectionTitle>
-      <Paragraph>{user.basics.summary}</Paragraph>
-    </StyledTile>
+  &::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background-color: ${theme.colors.secondary};
+    border-radius: 50%;
+  }
+`;
 
-    <StyledTile>
-      <SectionTitle style={{ marginTop: 0 }}>Expertise & Skills</SectionTitle>
-      <div style={{ marginTop: '1.5rem' }}>
-        <h4 style={{ color: '#00d1b2', marginBottom: '1rem', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Core Technologies</h4>
-        <div style={{ marginBottom: '1.5rem' }}>
-          {user.skills.map((skill, i) => (
-            <span key={i} title={`${skill.rating}/5`}>
-              <Pill>{skill.name}</Pill>
-            </span>
-          ))}
-        </div>
-      </div>
-    </StyledTile>
-  </Layout>
-);
+const CategoryCard = styled(StyledTile)`
+  position: relative;
+  height: 100%;
+  
+  .icon {
+    background-color: ${theme.colors.surfaceTonal};
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    svg {
+      fill: ${theme.colors.primary};
+    }
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+`;
+
+const CareerTile = styled.div`
+  padding: 1.5rem;
+  border-left: 2px solid ${theme.colors.border};
+  position: relative;
+  margin-bottom: 1rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 2rem;
+    width: 10px;
+    height: 10px;
+    background-color: ${theme.colors.primary};
+    border-radius: 50%;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    color: ${theme.colors.text};
+  }
+
+  p {
+    color: ${theme.colors.textMuted};
+    font-size: 0.9rem;
+  }
+`;
+
+const HobbyCard = styled(StyledTile)`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 2.5rem !important;
+  text-align: center;
+  align-items: center;
+
+  h3 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .links {
+    margin-top: auto;
+    display: flex;
+    gap: 1rem;
+    padding-top: 1.5rem;
+
+    a {
+      color: ${theme.colors.primary};
+      text-decoration: none;
+      font-weight: 600;
+      font-family: ${theme.fonts.technical};
+      font-size: 0.9rem;
+      &:hover { color: ${theme.colors.text}; }
+    }
+  }
+`;
+
+// Map grouped skill categories to carbon icons
+const categoryIcons = {
+  "Backend & Architecture": <DataBase size={24} />,
+  "Frontend": <Code size={24} />,
+  "Hardware & IoT": <Cloud size={24} />,
+  "Tools & Methodology": <Events size={24} />
+};
+
+const Profile = ({ user }) => {
+  const { intent } = useIntent();
+  const linkedin = formatUrl(user.basics.profiles?.find(p => p.network === 'LinkedIn')?.url);
+  const resume = user.basics.pdf || user.basics.website || linkedin;
+
+  // Determine Hero Messaging based on intent
+  let heroSubline = "7+ Years of Engineering Excellence.";
+  let heroSummary = user.basics.summary || "I build resilient, high-performance systems. My work focuses on scalable architectures, clean code, and solving complex technical challenges with precision.";
+  
+  if (intent === 'hiring') {
+    heroSubline = "Full Stack Engineer & Team Leader.";
+    heroSummary = "With a proven track record of driving scale and agility—from modernizing complex monoliths at Dhwani RIS to optimizing massive IAM architectures at Chegg. I bring comprehensive end-to-end expertise across modern stacks and robust system architecture.";
+  } else if (intent === 'freelance') {
+    heroSubline = "Scalable Architecture. Direct Business Impact.";
+    heroSummary = "Delivering scalable MERN, Python, & Golang architectures with precision. Whether it's rapid MVP prototypes like Zemba, complex data handling pipelines, or high-throughput enterprise systems, I build software that directly drives business goals.";
+  } else if (intent === 'mentorship') {
+    heroSubline = "Developer Mentorship & Guidance.";
+    heroSummary = "Passionate about giving back to the community via GFG mentorship. I help developers scale their technical skills, grasp complex microservice architectures, and build sustainable career paths in Software Engineering.";
+  }
+
+  const groupedSkills = categorizeSkills(user.skills);
+  const topProjects = [...(user.projects || [])].reverse().slice(0, 4);
+
+  return (
+    <Container className="fade-in" style={{ paddingTop: '2rem', paddingBottom: '3rem' }}>
+      
+      {/* 1. Hero Section */}
+      <Grid className="fade-in" style={{ marginBottom: '3rem' }}>
+        <Column lg={10} md={8} sm={4}>
+          <StatusPill>{user.basics.label}</StatusPill>
+          <HeroHeadline>
+            {user.basics.name.split(' ')[0]}.<br />
+            <span>{heroSubline}</span>
+          </HeroHeadline>
+          <HeroSubtitle>
+            {heroSummary}
+          </HeroSubtitle>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            {intent === 'mentorship' ? (
+              <Button renderIcon={ArrowRight} size="lg" as="a" href="https://www.geeksforgeeks.org/profile/itsharsh/" target="_blank">
+                Book Mentorship Session
+              </Button>
+            ) : (
+              <Button renderIcon={ArrowRight} size="lg" as="a" href="/projects">
+                View Architecture Projects
+              </Button>
+            )}
+            <Button 
+              kind="ghost" 
+              size="lg" 
+              as="a"
+              href={resume}
+              target="_blank"
+              style={{ color: theme.colors.text, border: `1px solid ${theme.colors.border}`, padding: '0 2rem' }}
+            >
+              Read Resume
+            </Button>
+          </div>
+        </Column>
+      </Grid>
+
+      {/* 2. Engineering Vision (About Preview) */}
+      <Grid className="fade-in" style={{ marginBottom: '2rem', animationDelay: '0.1s' }}>
+        <Column lg={12} md={8} sm={4}>
+          <StyledTile style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+             <h2 style={{ fontSize: '2rem', color: theme.colors.primary }}>Mantra</h2>
+             <p style={{ fontSize: '1.25rem', fontStyle: 'italic', color: theme.colors.text, lineHeight: '1.8', maxWidth: '800px' }}>
+              "Write code that is easy to delete, not easy to extend. Focus on modularity, testability, and delivering value quickly."
+            </p>
+             <p style={{ fontSize: '1.25rem', fontStyle: 'italic', color: theme.colors.text, lineHeight: '1.8', maxWidth: '800px' }}>
+              "Hope for the best, prepare for the worst."
+            </p>
+          </StyledTile>
+        </Column>
+      </Grid>
+
+      {/* 3. Career Summary Snapshot */}
+      <SectionHeader className="fade-in" style={{ animationDelay: '0.2s', marginBottom: '1.5rem', fontSize:'2rem' }}>Career Snapshot</SectionHeader>
+      <Grid className="fade-in" style={{ marginBottom: '2rem', animationDelay: '0.2s' }}>
+        {user.work?.map((job, idx) => (
+          <Column lg={4} md={4} sm={4} key={idx}>
+            <CareerTile>
+              <div style={{ 
+                fontFamily: theme.fonts.technical, 
+                color: theme.colors.primary, 
+                fontSize: '0.8rem',
+                marginBottom: '0.5rem',
+                textTransform: 'uppercase'
+              }}>
+                {job.startDate ? job.startDate.substring(0, 4) : ''} - {job.isCurrentRole ? 'Present' : (job.endDate ? job.endDate.substring(0, 4) : '')}
+              </div>
+              <h4>{job.position}</h4>
+              <p>{job.name}</p>
+            </CareerTile>
+          </Column>
+        ))}
+      </Grid>
+
+      {/* 4. Complete Dynamic Skills */}
+      <SectionHeader className="fade-in" style={{ animationDelay: '0.3s', marginBottom: '1.5rem', fontSize:'2rem' }}>Technical Arsenal</SectionHeader>
+      <Grid className="fade-in" style={{ marginBottom: '2rem', animationDelay: '0.3s' }}>
+        {Object.entries(groupedSkills).map(([category, skills]) => (
+          <Column lg={4} md={4} sm={4} key={category} style={{ marginBottom: '2rem' }}>
+            <CategoryCard>
+              <div className="icon">
+                {categoryIcons[category] || <Code size={24} />}
+              </div>
+              <h3>{category}</h3>
+              <div>
+                {skills.slice(0, 8).map(skill => (
+                  <TechPill key={skill} $highlight={HIGH_DEMAND_SKILLS.some(h => skill.toLowerCase().includes(h.toLowerCase()))}>
+                    {skill}
+                  </TechPill>
+                ))}
+                {skills.length > 8 && <span style={{ color: theme.colors.textMuted, fontSize: '0.8rem', marginLeft: '0.5rem' }}>+{skills.length - 8} more...</span>}
+              </div>
+            </CategoryCard>
+          </Column>
+        ))}
+      </Grid>
+
+      {/* 5. Featured Projects from GitConnected */}
+      <SectionHeader className="fade-in" style={{ animationDelay: '0.4s', marginBottom: '1.5rem', fontSize:'2rem' }}>Featured Work</SectionHeader>
+      <Grid className="fade-in" style={{ marginBottom: '2rem', animationDelay: '0.4s' }}>
+        {topProjects.map((project, i) => (
+          <Column lg={6} md={4} sm={4} key={i}>
+            <StyledTile style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
+                <h3 style={{ fontSize: '1.5rem' }}>{project.name}</h3>
+              </div>
+              <p style={{ color: theme.colors.textMuted, fontSize: '1rem', marginBottom: '1.5rem', lineHeight: '1.6' }}>
+                {project.summary || project.description || "A comprehensive technical project."}
+              </p>
+              <div style={{ marginBottom: '1.5rem' }}>
+                {project.languages?.slice(0,4).map(lang => (
+                  <TechPill key={lang}>{lang}</TechPill>
+                ))}
+              </div>
+              <div style={{ marginTop: 'auto', display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                {(project.website && !project.website.includes('github.com')) && (
+                  <ProjectActionBtn 
+                    $primary 
+                    href={formatUrl(project.website)} 
+                    target="_blank" 
+                    rel="noreferrer"
+                  >
+                    <Launch size={16} /> Live Demo
+                  </ProjectActionBtn>
+                )}
+                {(project.githubUrl || project.repositoryUrl) && (
+                  <ProjectActionBtn 
+                    href={formatUrl(project.githubUrl || project.repositoryUrl)} 
+                    target="_blank" 
+                    rel="noreferrer"
+                  >
+                    <Code size={16} /> Source Code
+                  </ProjectActionBtn>
+                )}
+              </div>
+            </StyledTile>
+          </Column>
+        ))}
+      </Grid>
+      
+      {/* Publications / Articles */}
+      {user.publications?.length > 0 && (
+        <>
+          <SectionHeader className="fade-in" style={{ animationDelay: '0.45s', marginBottom: '1.5rem', fontSize:'2rem' }}>Publications</SectionHeader>
+          <Grid className="fade-in" style={{ marginBottom: '2rem', animationDelay: '0.45s' }}>
+            {user.publications.map((pub, idx) => (
+              <Column lg={6} md={4} sm={4} key={idx}>
+                <StyledTile>
+                  <Catalog size={32} style={{ fill: theme.colors.secondary, marginBottom: '1rem' }} />
+                  <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>{pub.name}</h3>
+                  <p style={{ color: theme.colors.textMuted, marginBottom: '1rem', fontSize: '0.9rem' }}>
+                    {pub.publisher} • {pub.releaseDate && pub.releaseDate.substring(0, 4)}
+                  </p>
+                  {pub.url && (
+                    <a href={pub.url} target="_blank" rel="noreferrer" style={{ color: theme.colors.primary, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', fontWeight: 600 }}>
+                      Read Publication <ArrowRight size={16} />
+                    </a>
+                  )}
+                </StyledTile>
+              </Column>
+            ))}
+          </Grid>
+        </>
+      )}
+
+      {/* 6. Beyond Engineering / Hobbies */}
+      <SectionHeader className="fade-in" style={{ animationDelay: '0.5s', marginBottom: '1.5rem', fontSize:'2rem' }}>Beyond Engineering</SectionHeader>
+      <Grid className="fade-in" style={{ animationDelay: '0.5s', marginBottom: '2rem' }}>
+         <Column lg={6} md={8} sm={4}>
+           <HobbyCard>
+              <Video size={48} style={{ fill: theme.colors.primary }} />
+              <h3>Wanderer Engineers</h3>
+              <p style={{ color: theme.colors.textMuted, fontSize: '1rem', maxWidth: '400px' }}>
+                Documenting adventures, travel vlogs, and the life of engineers on the road.
+              </p>
+              <div className="links">
+                <a href="https://www.youtube.com/@wandererengineers" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                  <LogoYoutube size={20} /> YOUTUBE
+                </a>
+                <a href="https://www.instagram.com/wanderer_engineers/" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                  <LogoInstagram size={20} /> INSTAGRAM
+                </a>
+              </div>
+           </HobbyCard>
+         </Column>
+         <Column lg={6} md={8} sm={4}>
+           <HobbyCard>
+              <Events size={48} style={{ fill: theme.colors.primary }} />
+              <h3>Shuttle Diaries</h3>
+              <p style={{ color: theme.colors.textMuted, fontSize: '1rem', maxWidth: '400px' }}>
+                Badminton highlights, drills, and the pursuit of athletic excellence on the court.
+              </p>
+              <div className="links">
+                <a href="https://www.youtube.com/@shuttle-diaries" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                  <LogoYoutube size={20} /> YOUTUBE
+                </a>
+                <a href="https://www.instagram.com/shuttlediaries/" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                  <LogoInstagram size={20} /> INSTAGRAM
+                </a>
+              </div>
+           </HobbyCard>
+         </Column>
+      </Grid>
+
+    </Container>
+  );
+};
 
 export default Profile;

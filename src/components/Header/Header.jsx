@@ -1,114 +1,70 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
-import { ArrowRight } from "@carbon/icons-react";
-
-import {
-  LogoFacebook,
-  LogoGithub,
-  LogoLinkedin,
-  LogoTwitter,
-} from "@carbon/icons-react";
-
-import {
-  StyledHeaderContainer,
-  StyledHeader,
-  StyledImage,
-  StyledName,
-  StyledLink,
-  StyledInfo,
-  StyledSubInfo,
-  StyledSocialList,
-  StyledProfileLink,
-  StyledButtonContainer,
-} from "./styles";
+import React from 'react';
+import { HeaderContainer } from '@carbon/react';
+import { LogoGithub, LogoLinkedin, Email, Location, Calendar } from '@carbon/icons-react';
+import { 
+  StyledHeader, 
+  HeroContainer, 
+  ProfileImage, 
+  Name, 
+  Headline, 
+  JobTitle, 
+  MetaInfo, 
+  MetaItem, 
+  SocialLinks 
+} from './styles';
 
 const Header = ({ user }) => {
-  const location = useLocation();
-
-  // Dynamic calculation for seniority based on the first work start date
-  const totalExperience = React.useMemo(() => {
-    const startDates = user.work
-      .filter(w => w.startDate)
-      .map(w => new Date(w.startDate).getTime());
-    if (startDates.length === 0) return "7+";
-    const oldestDate = new Date(Math.min(...startDates));
-    const years = (new Date() - oldestDate) / (1000 * 60 * 60 * 24 * 365.25);
-    return Math.floor(years);
-  }, [user.work]);
+  const currentJob = user.work[0];
+  
+  // Dynamic experience calculation
+  const totalExperience = user.work.reduce((total, job) => {
+    const start = new Date(job.startDate);
+    const end = job.endDate ? new Date(job.endDate) : new Date();
+    return total + (end - start) / (1000 * 60 * 60 * 24 * 365.25);
+  }, 0);
 
   return (
-    <StyledHeaderContainer isHome={location.pathname === "/"}>
-      <StyledHeader>
-        <StyledImage src={user.basics.image} />
-        <div>
-          <StyledName>{user.basics.name}</StyledName>
-          <StyledInfo>{user.basics.label}</StyledInfo>
-          {user.work && user.work[0] && (
-            <div style={{ color: '#8d8d8d', fontSize: '1rem', marginTop: '0.25rem' }}>
-              {user.work[0].position} at {user.work[0].name}
-            </div>
-          )}
-          
-          <StyledSubInfo>
-            <span><strong>Total Experience:</strong> {totalExperience} Year(s)</span>
-            <span><strong>Hometown:</strong> {user.basics.location.city}</span>
-            <span><strong>Location:</strong> Delhi NCR | Remote</span>
-            <span>
-              <strong>Mail:</strong>{" "}
-              <a href={`mailto:${user.basics.email}`}>{user.basics.email}</a>
-            </span>
-          </StyledSubInfo>
+    <HeaderContainer
+      render={() => (
+        <StyledHeader aria-label="Harsh Portfolio">
+          <HeroContainer>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+              <ProfileImage src={user.basics.image} alt={user.basics.name} />
+              <div>
+                <Name>{user.basics.name}</Name>
+                <Headline>{user.basics.label}</Headline>
+                <JobTitle>
+                  Currently: {currentJob.position} @ {currentJob.name}
+                </JobTitle>
+                
+                <MetaInfo>
+                  <MetaItem>
+                    <Location size={16} />
+                    <span>Preferred Location: Delhi NCR | Remote</span>
+                  </MetaItem>
+                  <MetaItem>
+                    <Calendar size={16} />
+                    <span>{Math.floor(totalExperience)}+ Years Technical Experience</span>
+                  </MetaItem>
+                </MetaInfo>
 
-          <StyledSocialList>
-            {user.basics.profiles
-              .filter(
-                (profile) =>
-                  profile.network !== "gitconnected" &&
-                  profile.network !== "HackerRank"
-              )
-              .map((profile) => (
-                <StyledProfileLink key={profile.network}>
-                  <a
-                    href={profile.url}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    title={profile.network}
-                  >
-                    {(() => {
-                      switch (profile.network) {
-                        case "Facebook": return <LogoFacebook size={24} />;
-                        case "LinkedIn": return <LogoLinkedin size={24} />;
-                        case "GitHub": return <LogoGithub size={24} />;
-                        case "Twitter": return <LogoTwitter size={24} />;
-                        default: return null;
-                      }
-                    })()}
+                <SocialLinks>
+                  <a href={user.basics.url} target="_blank" rel="noreferrer">
+                    <LogoGithub size={24} />
                   </a>
-                </StyledProfileLink>
-              ))}
-          </StyledSocialList>
-        </div>
-      </StyledHeader>
-
-      <StyledButtonContainer>
-        <StyledLink
-          href="https://cv.itsharsh.com"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          <span>View CV</span>
-          <ArrowRight />
-        </StyledLink>
-        <StyledLink
-          href="https://resume.itsharsh.com"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          <span>Download Resume</span>
-          <ArrowRight />
-        </StyledLink>
-      </StyledButtonContainer>
-    </StyledHeaderContainer>
+                  <a href={`https://linkedin.com/in/${user.basics.profiles.find(p => p.network === 'LinkedIn')?.username}`} target="_blank" rel="noreferrer">
+                    <LogoLinkedin size={24} />
+                  </a>
+                  <a href={`mailto:${user.basics.email}`}>
+                    <Email size={24} />
+                  </a>
+                </SocialLinks>
+              </div>
+            </div>
+          </HeroContainer>
+        </StyledHeader>
+      )}
+    />
   );
 };
 

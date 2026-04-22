@@ -1,53 +1,46 @@
-// Singleton import of Carbon v11 styles.
-// Themes (g10, g90, g100, etc.) and reset are included here.
-@use '@carbon/styles' as *;
-
-$backgroundColor: #393939;
+@use '@carbon/styles/scss/themes';
+@use '@carbon/styles/scss/theme' with (
+  $theme: themes.$g100
+);
+@use '@carbon/styles';
 
 :root {
-  // Apply the G100 (Dark) theme
-  @include theme($g100);
-}
-
-// Manual mapping of legacy Carbon v10 tokens to v11 equivalents
-// These are used for overrides where the new cds-- prefix isn't enough
-$text-04: white;
-$ui-background: #161616;
-$ui-01: #393939;
-
-a {
-  color: $text-04;
+  --cds-background: #161616;
+  --cds-layer-01: #131313;
+  --cds-layer-02: #393939;
+  --cds-link-01: #0F62FE;
+  --cds-button-primary: #0F62FE;
 }
 
 body {
-  background-color: $backgroundColor;
   margin: 0;
   padding: 0;
-}
-
-// Ensure the side nav and content respect the theme and background
-.cds--side-nav__navigation {
-  background-color: $ui-background;
+  background-color: #161616 !important;
+  color: #e5e2e1;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 .cds--content {
-  background-color: $backgroundColor;
+  background-color: #161616 !important;
+  padding: 2rem;
   min-height: 100vh;
 }
 
-// Tab and link highlighting for the current page
-a.cds--side-nav__link--current,
-a.cds--side-nav__link--current>span.cds--side-nav__link-text {
-  background-color: $ui-01;
-  color: $text-04;
+.cds--side-nav {
+  background-color: #131313 !important;
+  border-right: 1px solid #393939;
 }
 
-.cds--side-nav__item:not(.cds--side-nav__item--active)>.cds--side-nav__link:hover {
-  background-color: $ui-01;
-  color: $text-04;
+.cds--side-nav__item--active {
+  background-color: #262626 !important;
+  &::before {
+    background-color: #0F62FE !important;
+  }
 }
 
-a.cds--side-nav__link>.cds--side-nav__link-text,
-.cds--side-nav__item:not(.cds--side-nav__item--active)>.cds--side-nav__link:hover>span {
-  color: $text-04;
+.cds--side-nav__link-text {
+  font-family: 'Space Grotesk', sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.05em;
 }
