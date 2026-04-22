@@ -50,6 +50,25 @@ const About = ({ user }) => {
 
   const mailtoLink = `mailto:${user.basics.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
+  // Dynamic Philosophy variables
+  let mantraTitle = "Engineering Philosophy";
+  let mantra1 = `"Write code that is easy to delete, not easy to extend. Focus on modularity, testability, and delivering value quickly."`;
+  let mantra2 = `"Hope for the best, prepare for the worst."`;
+  
+  if (intent === 'hiring') {
+    mantraTitle = "Leadership & Scale";
+    mantra1 = `"AI might automate tasks and even write code, but true engineering is about the mindset—understanding the deep root of a problem before crafting the solution."`;
+    mantra2 = `"As AI evolves, it won't take our jobs; it will challenge us to create entirely new ones. Take ownership and build elegant systems that adapt."`;
+  } else if (intent === 'freelance') {
+    mantraTitle = "Delivery & Value";
+    mantra1 = `"I build fast, simple, and highly effective tools that help your business grow without the technical headaches."`;
+    mantra2 = `"Good software should make your day-to-day work easier, not more complicated."`;
+  } else if (intent === 'mentorship') {
+    mantraTitle = "Mentorship Philosophy";
+    mantra1 = `"Continuous learning is the absolute cornerstone of engineering. Trust the process, stay consistent, and share your knowledge openly."`;
+    mantra2 = `"The purest test of understanding complex systems is the ability to teach them simply to someone else."`;
+  }
+
   return (
     <Container>
       <AboutHero>
@@ -79,13 +98,13 @@ const About = ({ user }) => {
               marginBottom: '1.5rem',
               fontSize: '0.9rem'
             }}>
-              Engineering Philosophy
+              {mantraTitle}
             </h4>
             <p style={{ fontSize: '1.1rem', fontStyle: 'italic', color: theme.colors.text, lineHeight: '1.8' }}>
-              "Write code that is easy to delete, not easy to extend. Focus on modularity, testability, and delivering value quickly."
+              {mantra1}
             </p>
             <p style={{ fontSize: '1.1rem', fontStyle: 'italic', color: theme.colors.text, lineHeight: '1.8', marginTop: '1rem' }}>
-              "Hope for the best, prepare for the worst."
+              {mantra2}
             </p>
           </StyledTile>
 

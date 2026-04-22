@@ -55,10 +55,12 @@ const Education = ({ user }) => {
           <Column lg={6} md={8} sm={4} key={i}>
             <EducationCard>
               <h3 className="institution">{edu.institution}</h3>
-              <div className="degree">{edu.studyType} in {edu.area}</div>
-              <p style={{ color: theme.colors.textMuted, lineHeight: '1.6' }}>
-                {edu.description || 'Focused on systems architecture, data structures, and algorithmic efficiency.'}
-              </p>
+              <div className="degree">{edu.studyType} {edu.area ? `in ${edu.area}` : ''}</div>
+              {edu.description && (
+                <p style={{ color: theme.colors.textMuted, lineHeight: '1.6' }}>
+                  {edu.description}
+                </p>
+              )}
               <div className="meta">
                 <span>{edu.start.year} — {edu.end.year}</span>
               </div>

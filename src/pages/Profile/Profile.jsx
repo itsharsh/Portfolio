@@ -140,74 +140,89 @@ const Profile = ({ user }) => {
   let heroSubline = "7+ Years of Engineering Excellence.";
   let heroSummary = user.basics.summary || "I build resilient, high-performance systems. My work focuses on scalable architectures, clean code, and solving complex technical challenges with precision.";
   
+  // Dynamic Mantra variables
+  let mantraTitle = "Engineering Vision";
+  let mantra1 = `"Write code that is easy to delete, not easy to extend. Focus on modularity, testability, and delivering value quickly."`;
+  let mantra2 = `"Hope for the best, prepare for the worst."`;
+  
   if (intent === 'hiring') {
     heroSubline = "Full Stack Engineer & Team Leader.";
     heroSummary = "With a proven track record of driving scale and agility—from modernizing complex monoliths at Dhwani RIS to optimizing massive IAM architectures at Chegg. I bring comprehensive end-to-end expertise across modern stacks and robust system architecture.";
+    mantraTitle = "Leadership & Scale";
+    mantra1 = `"AI might automate tasks and even write code, but true engineering is about the mindset—understanding the deep root of a problem before crafting the solution."`;
+    mantra2 = `"As AI evolves, it won't take our jobs; it will challenge us to create entirely new ones. Take ownership and build elegant systems that adapt."`;
   } else if (intent === 'freelance') {
     heroSubline = "Scalable Architecture. Direct Business Impact.";
     heroSummary = "Delivering scalable MERN, Python, & Golang architectures with precision. Whether it's rapid MVP prototypes like Zemba, complex data handling pipelines, or high-throughput enterprise systems, I build software that directly drives business goals.";
+    mantraTitle = "Delivery & Value";
+    mantra1 = `"I build fast, simple, and highly effective tools that help your business grow without the technical headaches."`;
+    mantra2 = `"Good software should make your day-to-day work easier, not more complicated."`;
   } else if (intent === 'mentorship') {
     heroSubline = "Developer Mentorship & Guidance.";
     heroSummary = "Passionate about giving back to the community via GFG mentorship. I help developers scale their technical skills, grasp complex microservice architectures, and build sustainable career paths in Software Engineering.";
+    mantraTitle = "Mentorship Philosophy";
+    mantra1 = `"Continuous learning is the absolute cornerstone of engineering. Trust the process, stay consistent, and share your knowledge openly."`;
+    mantra2 = `"The purest test of understanding complex systems is the ability to teach them simply to someone else."`;
   }
 
   const groupedSkills = categorizeSkills(user.skills);
   const topProjects = [...(user.projects || [])].reverse().slice(0, 4);
 
-  return (
-    <Container className="fade-in" style={{ paddingTop: '2rem', paddingBottom: '3rem' }}>
-      
-      {/* 1. Hero Section */}
-      <Grid className="fade-in" style={{ marginBottom: '3rem' }}>
-        <Column lg={10} md={8} sm={4}>
-          <StatusPill>{user.basics.label}</StatusPill>
-          <HeroHeadline>
-            {user.basics.name.split(' ')[0]}.<br />
-            <span>{heroSubline}</span>
-          </HeroHeadline>
-          <HeroSubtitle>
-            {heroSummary}
-          </HeroSubtitle>
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            {intent === 'mentorship' ? (
-              <Button renderIcon={ArrowRight} size="lg" as="a" href="https://www.geeksforgeeks.org/profile/itsharsh/" target="_blank">
-                Book Mentorship Session
-              </Button>
-            ) : (
-              <Button renderIcon={ArrowRight} size="lg" as="a" href="/projects">
-                View Architecture Projects
-              </Button>
-            )}
-            <Button 
-              kind="ghost" 
-              size="lg" 
-              as="a"
-              href={resume}
-              target="_blank"
-              style={{ color: theme.colors.text, border: `1px solid ${theme.colors.border}`, padding: '0 2rem' }}
-            >
-              Read Resume
+
+  const HeroSection = (
+    <Grid className="fade-in" style={{ marginBottom: '3rem' }}>
+      <Column lg={10} md={8} sm={4}>
+        <StatusPill>{user.basics.label}</StatusPill>
+        <HeroHeadline>
+          {user.basics.name.split(' ')[0]}.<br />
+          <span>{heroSubline}</span>
+        </HeroHeadline>
+        <HeroSubtitle>
+          {heroSummary}
+        </HeroSubtitle>
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          {intent === 'mentorship' ? (
+            <Button renderIcon={ArrowRight} size="lg" as="a" href="https://www.geeksforgeeks.org/profile/itsharsh/" target="_blank">
+              Book Mentorship Session
             </Button>
-          </div>
-        </Column>
-      </Grid>
+          ) : (
+            <Button renderIcon={ArrowRight} size="lg" as="a" href="/projects">
+              View Architecture Projects
+            </Button>
+          )}
+          <Button 
+            kind="ghost" 
+            size="lg" 
+            as="a"
+            href={resume}
+            target="_blank"
+            style={{ color: theme.colors.text, border: `1px solid ${theme.colors.border}`, padding: '0 2rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+          >
+            Read Resume
+          </Button>
+        </div>
+      </Column>
+    </Grid>
+  );
 
-      {/* 2. Engineering Vision (About Preview) */}
-      <Grid className="fade-in" style={{ marginBottom: '2rem', animationDelay: '0.1s' }}>
-        <Column lg={12} md={8} sm={4}>
-          <StyledTile style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-             <h2 style={{ fontSize: '2rem', color: theme.colors.primary }}>Mantra</h2>
-             <p style={{ fontSize: '1.25rem', fontStyle: 'italic', color: theme.colors.text, lineHeight: '1.8', maxWidth: '800px' }}>
-              "Write code that is easy to delete, not easy to extend. Focus on modularity, testability, and delivering value quickly."
-            </p>
-             <p style={{ fontSize: '1.25rem', fontStyle: 'italic', color: theme.colors.text, lineHeight: '1.8', maxWidth: '800px' }}>
-              "Hope for the best, prepare for the worst."
-            </p>
-          </StyledTile>
-        </Column>
-      </Grid>
+  const MantraSection = (
+    <Grid className="fade-in" style={{ marginBottom: '2rem', animationDelay: '0.1s' }}>
+      <Column lg={12} md={8} sm={4}>
+        <StyledTile style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+           <h2 style={{ fontSize: '2rem', color: theme.colors.primary }}>{mantraTitle}</h2>
+           <p style={{ fontSize: '1.25rem', fontStyle: 'italic', color: theme.colors.text, lineHeight: '1.8', maxWidth: '800px' }}>
+            {mantra1}
+          </p>
+           <p style={{ fontSize: '1.25rem', fontStyle: 'italic', color: theme.colors.text, lineHeight: '1.8', maxWidth: '800px', marginTop: '0.5rem' }}>
+            {mantra2}
+          </p>
+        </StyledTile>
+      </Column>
+    </Grid>
+  );
 
-      {/* 3. Career Summary Snapshot */}
+  const CareerSection = (
+    <>
       <SectionHeader className="fade-in" style={{ animationDelay: '0.2s', marginBottom: '1.5rem', fontSize:'2rem' }}>Career Snapshot</SectionHeader>
       <Grid className="fade-in" style={{ marginBottom: '2rem', animationDelay: '0.2s' }}>
         {user.work?.map((job, idx) => (
@@ -228,8 +243,11 @@ const Profile = ({ user }) => {
           </Column>
         ))}
       </Grid>
+    </>
+  );
 
-      {/* 4. Complete Dynamic Skills */}
+  const SkillsSection = (
+    <>
       <SectionHeader className="fade-in" style={{ animationDelay: '0.3s', marginBottom: '1.5rem', fontSize:'2rem' }}>Technical Arsenal</SectionHeader>
       <Grid className="fade-in" style={{ marginBottom: '2rem', animationDelay: '0.3s' }}>
         {Object.entries(groupedSkills).map(([category, skills]) => (
@@ -251,16 +269,35 @@ const Profile = ({ user }) => {
           </Column>
         ))}
       </Grid>
+    </>
+  );
 
-      {/* 5. Featured Projects from GitConnected */}
+  const ProjectsSection = (
+    <>
       <SectionHeader className="fade-in" style={{ animationDelay: '0.4s', marginBottom: '1.5rem', fontSize:'2rem' }}>Featured Work</SectionHeader>
       <Grid className="fade-in" style={{ marginBottom: '2rem', animationDelay: '0.4s' }}>
         {topProjects.map((project, i) => (
-          <Column lg={6} md={4} sm={4} key={i}>
-            <StyledTile style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+          <Column lg={6} md={4} sm={4} key={i} style={{ marginBottom: '2rem' }}>
+            <StyledTile style={{ display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
                 <h3 style={{ fontSize: '1.5rem' }}>{project.name}</h3>
               </div>
+              
+              {(project.website && project.website !== '#' && !project.website.includes('github.com')) && (
+                <div style={{ 
+                  width: '100%', borderRadius: '4px', overflow: 'hidden', marginBottom: '1.5rem', 
+                  position: 'relative', paddingTop: '56.25%', backgroundColor: theme.colors.border, border: `1px solid ${theme.colors.border}` 
+                }}>
+                  <iframe 
+                    src={formatUrl(project.website)} 
+                    title={`${project.name} Preview`}
+                    sandbox="allow-scripts allow-same-origin"
+                    loading="lazy"
+                    style={{ position: 'absolute', top: 0, left: 0, width: '200%', height: '200%', transform: 'scale(0.5)', transformOrigin: '0 0', border: 'none', pointerEvents: 'none' }}
+                  />
+                </div>
+              )}
+
               <p style={{ color: theme.colors.textMuted, fontSize: '1rem', marginBottom: '1.5rem', lineHeight: '1.6' }}>
                 {project.summary || project.description || "A comprehensive technical project."}
               </p>
@@ -294,33 +331,35 @@ const Profile = ({ user }) => {
           </Column>
         ))}
       </Grid>
-      
-      {/* Publications / Articles */}
-      {user.publications?.length > 0 && (
-        <>
-          <SectionHeader className="fade-in" style={{ animationDelay: '0.45s', marginBottom: '1.5rem', fontSize:'2rem' }}>Publications</SectionHeader>
-          <Grid className="fade-in" style={{ marginBottom: '2rem', animationDelay: '0.45s' }}>
-            {user.publications.map((pub, idx) => (
-              <Column lg={6} md={4} sm={4} key={idx}>
-                <StyledTile>
-                  <Catalog size={32} style={{ fill: theme.colors.secondary, marginBottom: '1rem' }} />
-                  <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>{pub.name}</h3>
-                  <p style={{ color: theme.colors.textMuted, marginBottom: '1rem', fontSize: '0.9rem' }}>
-                    {pub.publisher} • {pub.releaseDate && pub.releaseDate.substring(0, 4)}
-                  </p>
-                  {pub.url && (
-                    <a href={pub.url} target="_blank" rel="noreferrer" style={{ color: theme.colors.primary, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', fontWeight: 600 }}>
-                      Read Publication <ArrowRight size={16} />
-                    </a>
-                  )}
-                </StyledTile>
-              </Column>
-            ))}
-          </Grid>
-        </>
-      )}
+    </>
+  );
 
-      {/* 6. Beyond Engineering / Hobbies */}
+  const PubsSection = user.publications?.length > 0 ? (
+    <>
+      <SectionHeader className="fade-in" style={{ animationDelay: '0.45s', marginBottom: '1.5rem', fontSize:'2rem' }}>Publications</SectionHeader>
+      <Grid className="fade-in" style={{ marginBottom: '2rem', animationDelay: '0.45s' }}>
+        {user.publications.map((pub, idx) => (
+          <Column lg={6} md={4} sm={4} key={idx}>
+            <StyledTile>
+              <Catalog size={32} style={{ fill: theme.colors.secondary, marginBottom: '1rem' }} />
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>{pub.name}</h3>
+              <p style={{ color: theme.colors.textMuted, marginBottom: '1rem', fontSize: '0.9rem' }}>
+                {pub.publisher} • {pub.releaseDate && pub.releaseDate.substring(0, 4)}
+              </p>
+              {pub.url && (
+                <a href={pub.url} target="_blank" rel="noreferrer" style={{ color: theme.colors.primary, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', fontWeight: 600 }}>
+                  Read Publication <ArrowRight size={16} />
+                </a>
+              )}
+            </StyledTile>
+          </Column>
+        ))}
+      </Grid>
+    </>
+  ) : null;
+
+  const HobbiesSection = (
+    <>
       <SectionHeader className="fade-in" style={{ animationDelay: '0.5s', marginBottom: '1.5rem', fontSize:'2rem' }}>Beyond Engineering</SectionHeader>
       <Grid className="fade-in" style={{ animationDelay: '0.5s', marginBottom: '2rem' }}>
          <Column lg={6} md={8} sm={4}>
@@ -358,7 +397,28 @@ const Profile = ({ user }) => {
            </HobbyCard>
          </Column>
       </Grid>
+    </>
+  );
 
+  let renderOrder = [];
+  if (intent === 'hiring') {
+    // For hiring: Career, Skills, Projects, Mantra, Pubs, Hobbies
+    renderOrder = [CareerSection, SkillsSection, ProjectsSection, MantraSection, PubsSection, HobbiesSection];
+  } else if (intent === 'freelance') {
+    // For freelance: Projects (Direct value), Skills, Career, Mantra, Pubs, Hobbies
+    renderOrder = [ProjectsSection, SkillsSection, CareerSection, MantraSection, PubsSection, HobbiesSection];
+  } else if (intent === 'mentorship') {
+    // For mentorship: Mantra (Philosophy) first, then Skills, Pubs (Knowledge), Projects
+    renderOrder = [MantraSection, SkillsSection, PubsSection, ProjectsSection, CareerSection, HobbiesSection];
+  } else {
+    // Default flow
+    renderOrder = [MantraSection, CareerSection, SkillsSection, ProjectsSection, PubsSection, HobbiesSection];
+  }
+
+  return (
+    <Container className="fade-in" style={{ paddingTop: '2rem', paddingBottom: '3rem' }}>
+      {HeroSection}
+      {renderOrder.map((Section, idx) => <React.Fragment key={idx}>{Section}</React.Fragment>)}
     </Container>
   );
 };

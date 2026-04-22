@@ -166,6 +166,7 @@ const Layout = ({ user, children }) => {
               <a href={`https://resume.itsharsh.com`} target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>RESUME</a>
               <a href={`https://instagram.com/its_harsh`} target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>INSTAGRAM</a>
               <a href={`https://geeksforgeeks.org/profile/itsharsh/`} target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>GFG MENTORSHIP</a>
+              <a href={`https://itsharsh.com/v1/`} target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>V1 PORTFOLIO</a>
               <a href={`mailto:${user.basics.email}`} style={{ color: 'inherit', textDecoration: 'none' }}>EMAIL</a>
               <button 
                 onClick={() => { clearIntent(); navigate('/'); }} 

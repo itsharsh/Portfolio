@@ -73,7 +73,6 @@ const FilterButton = styled.button`
 const ProjectCard = styled(StyledTile)`
   display: flex;
   flex-direction: column;
-  height: 100%;
   padding: 2.5rem !important;
 
   .header {
@@ -106,14 +105,34 @@ const ProjectCard = styled(StyledTile)`
     flex-grow: 1;
   }
 
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .preview-container {
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background-color: ${theme.colors.border};
+    border: 1px solid ${theme.colors.border};
+    
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      transform: scale(0.5);
+      transform-origin: 0 0;
+      border: none;
+      pointer-events: none;
+    }
   }
 `;
-
-const Filters = ['All', 'Backend', 'Frontend', 'Systems'];
 
 const Projects = ({ user }) => {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -132,10 +151,9 @@ const Projects = ({ user }) => {
   const allProjects = [...personalData.pendingProjects, ...baseProjects].reverse();
 
   const filteredProjects = allProjects.filter(p => {
-    const matchesFilter = activeFilter === 'All' || p.category === activeFilter;
     const searchString = `${p.name} ${p.summary} ${p.languages.join(' ')}`.toLowerCase();
     const matchesSearch = searchString.includes(searchQuery.toLowerCase());
-    return matchesFilter && matchesSearch;
+    return matchesSearch;
   });
 
   return (
@@ -153,36 +171,23 @@ const Projects = ({ user }) => {
         </Grid>
       </ProjectsHero>
 
-      <Grid>
+      <Grid style={{ marginBottom: '2rem' }}>
         <Column lg={16} md={8} sm={4}>
-          <FilterGrid>
-            <SearchContainer>
-              <Search size={20} />
-              <input 
-                type="text" 
-                placeholder="Filter by technology or keyword..." 
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </SearchContainer>
-            <div style={{ display: 'flex', gap: '1rem', overflowX: 'auto' }}>
-              {Filters.map(filter => (
-                <FilterButton 
-                  key={filter}
-                  $active={activeFilter === filter}
-                  onClick={() => setActiveFilter(filter)}
-                >
-                  {filter}
-                </FilterButton>
-              ))}
-            </div>
-          </FilterGrid>
+          <SearchContainer style={{ maxWidth: '100%' }}>
+            <Search size={20} />
+            <input 
+              type="text" 
+              placeholder="Search by technology or keyword..." 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </SearchContainer>
         </Column>
       </Grid>
 
       <Grid>
         {filteredProjects.map((project, i) => (
-          <Column lg={8} md={8} sm={4} key={i}>
+          <Column lg={8} md={8} sm={4} key={i} style={{ marginBottom: '2rem' }}>
             <ProjectCard>
               <div className="header" style={{ marginBottom: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 <h3 style={{ fontSize: '1.5rem', margin: 0 }}>{project.name}</h3>
@@ -199,6 +204,18 @@ const Projects = ({ user }) => {
                   )}
                 </div>
               </div>
+              
+              {(project.website && project.website !== '#' && !project.website.includes('github.com')) && (
+                <div className="preview-container">
+                  <iframe 
+                    src={formatUrl(project.website)} 
+                    title={`${project.name} Preview`}
+                    sandbox="allow-scripts allow-same-origin"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+
               <p>{project.summary}</p>
               <div className="tags">
                 {project.languages.map((lang, idx) => (
