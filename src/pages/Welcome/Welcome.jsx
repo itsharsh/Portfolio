@@ -152,7 +152,7 @@ const Welcome = ({ user }) => {
             }} 
           />
         )}
-        <QuestionText>Hi, I'm {user?.basics?.name.split(' ')[0]}</QuestionText>
+        <QuestionText>Hi, I'm {(user?.basics?.name || "Harsh").split(' ')[0]}</QuestionText>
         
         <p style={{ color: theme.colors.text, fontSize: '1.2rem', marginBottom: '0.5rem', fontWeight: 500 }}>
           {headline}.
