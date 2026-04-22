@@ -253,7 +253,7 @@ export const MentorshipFeedbacks = () => {
     <div style={{ marginTop: '0rem' }}>
       <SectionHeader className="fade-in" style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>Mentorship Feedback</SectionHeader>
       <div className="fade-in" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', backgroundColor: theme.colors.surfaceTonal, padding: '0.5rem 1rem', borderRadius: '4px' }}>
-        <span style={{ fontSize: '1.25rem', fontWeight: 600, color: theme.colors.text }}>⭐ {rating || "4.9"}/5</span>
+        <span style={{ fontSize: '1.25rem', fontWeight: 600, color: theme.colors.text }}>⭐ {rating || "..."}/5</span>
         <span style={{ color: theme.colors.textMuted, fontSize: '0.9rem', fontFamily: theme.fonts.technical }}>overall rating on GeeksforGeeks Connect</span>
       </div>
       <Grid>
