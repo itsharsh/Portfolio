@@ -13,6 +13,7 @@ const items = [
   { name: "Experience", path: "/experience" },
   { name: "Education", path: "/education" },
   { name: "Achievements", path: "/achievements" },
+  { name: "Blogs", path: "/blogs" },
 ];
 
 const Sidebar = () => {

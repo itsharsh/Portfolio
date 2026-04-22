@@ -5,11 +5,12 @@ import { StyledTile, SectionHeader, Container, theme } from '../../styles';
 import styled from 'styled-components';
 
 const AchievementsHero = styled.div`
-  padding: 1.5rem 0;
+  padding: 0 0 1.5rem 0;
   border-bottom: 1px solid ${theme.colors.border};
   margin-bottom: 2rem;
 `;
 
+// ... skipping intact components internally but preserving them in block ...
 const AchievementCard = styled(StyledTile)`
   margin-bottom: 2rem;
   
@@ -48,8 +49,8 @@ const Achievements = ({ user }) => {
         </p>
       </AchievementsHero>
 
-      <div style={{ marginBottom: '6rem' }}>
-        <h2 style={{ fontSize: '2rem', marginBottom: '3rem' }}>Publications</h2>
+      <div style={{ marginBottom: '3rem' }}>
+        <h2 style={{ fontSize: '2rem', marginBottom: '2rem' }}>Publications</h2>
         <Grid>
           {user.publications.map((pub, i) => (
             <Column lg={6} md={8} sm={4} key={i}>

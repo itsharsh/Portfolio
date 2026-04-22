@@ -7,6 +7,7 @@ import Experience from "./Experience/Experience";
 import Education from "./Education/Education";
 import Achievements from "./Achievements/Achievements";
 import About from "./About/About"; // We will create this
+import Blogs from "./Blogs/Blogs";
 import Welcome from "./Welcome/Welcome";
 import { GlobalStyle } from "../styles";
 import { IntentProvider, useIntent } from "../context/IntentContext";
@@ -28,6 +29,7 @@ const Routing = ({ user }) => {
         <Route path="/experience" element={<Experience user={user} />} />
         <Route path="/education" element={<Education user={user} />} />
         <Route path="/achievements" element={<Achievements user={user} />} />
+        <Route path="/blogs" element={<Blogs user={user} />} />
       </Routes>
     </Layout>
   );

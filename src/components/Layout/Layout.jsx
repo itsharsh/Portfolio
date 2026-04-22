@@ -42,13 +42,13 @@ const Brand = styled(Link)`
 
 const NavLinks = styled.div`
   display: flex;
-  gap: 1.5rem;
+  gap: 1.25rem;
   
   a {
     font-family: ${theme.fonts.primary};
     color: ${theme.colors.textMuted};
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -106,6 +106,7 @@ const Layout = ({ user, children }) => {
               <NavLink to="/experience">Experience</NavLink>
               <NavLink to="/education">Education</NavLink>
               <NavLink to="/achievements">Achievements</NavLink>
+              <NavLink to="/blogs">Blogs</NavLink>
               <NavLink to="/about">About</NavLink>
             </NavLinks>
             <SocialGroup>

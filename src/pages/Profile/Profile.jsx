@@ -14,6 +14,7 @@ import {
 import styled from 'styled-components';
 import { useIntent } from '../../context/IntentContext';
 import { categorizeSkills, formatUrl } from '../../utils';
+import { GFGArticles, MentorshipFeedbacks, MediumArticles } from '../Blogs/Blogs';
 
 const HIGH_DEMAND_SKILLS = ['NodeJS', 'ReactJS', 'Auth0', 'MongoDB', 'Go', 'Microservices', 'AWS', 'Python', 'Kafka', 'Docker'];
 
@@ -61,6 +62,36 @@ const CategoryCard = styled(StyledTile)`
   h3 {
     font-size: 1.25rem;
     margin-bottom: 1rem;
+  }
+`;
+
+const ProfileHero = styled.div`
+  padding: 0 0 1.5rem 0;
+  border-bottom: 1px solid ${theme.colors.border};
+  margin-bottom: 2rem;
+`;
+
+const MasonryGrid = styled.div`
+  -webkit-column-count: 1;
+  -moz-column-count: 1;
+  column-count: 1;
+  -webkit-column-gap: 2rem;
+  -moz-column-gap: 2rem;
+  column-gap: 2rem;
+  
+  @media (min-width: 1056px) {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+
+  & > div {
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 2rem;
+    display: table;
+    width: 100%;
   }
 `;
 
@@ -170,17 +201,17 @@ const Profile = ({ user }) => {
 
 
   const HeroSection = (
-    <Grid className="fade-in" style={{ marginBottom: '3rem' }}>
-      <Column lg={10} md={8} sm={4}>
+    <Grid className="fade-in" style={{ marginBottom: '4rem', alignItems: 'center' }}>
+      <Column lg={7} md={8} sm={4}>
         <StatusPill>{user.basics.label}</StatusPill>
-        <HeroHeadline>
+        <HeroHeadline style={{ fontSize: '3.5rem' }}>
           {user.basics.name.split(' ')[0]}.<br />
-          <span>{heroSubline}</span>
+          <span style={{ fontSize: '2rem' }}>{heroSubline}</span>
         </HeroHeadline>
-        <HeroSubtitle>
+        <HeroSubtitle style={{ maxWidth: '90%' }}>
           {heroSummary}
         </HeroSubtitle>
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '2rem' }}>
           {intent === 'mentorship' ? (
             <Button renderIcon={ArrowRight} size="lg" as="a" href="https://www.geeksforgeeks.org/profile/itsharsh/" target="_blank">
               Book Mentorship Session
@@ -202,18 +233,13 @@ const Profile = ({ user }) => {
           </Button>
         </div>
       </Column>
-    </Grid>
-  );
-
-  const MantraSection = (
-    <Grid className="fade-in" style={{ marginBottom: '2rem', animationDelay: '0.1s' }}>
-      <Column lg={12} md={8} sm={4}>
-        <StyledTile style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-           <h2 style={{ fontSize: '2rem', color: theme.colors.primary }}>{mantraTitle}</h2>
-           <p style={{ fontSize: '1.25rem', fontStyle: 'italic', color: theme.colors.text, lineHeight: '1.8', maxWidth: '800px' }}>
+      <Column lg={5} md={8} sm={4}>
+        <StyledTile style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', border: `1px solid ${theme.colors.primary}40`, backgroundColor: `${theme.colors.primary}05` }}>
+           <h2 style={{ fontSize: '1.5rem', color: theme.colors.primary, marginBottom: '0.5rem' }}>{mantraTitle}</h2>
+           <p style={{ fontSize: '1.1rem', fontStyle: 'italic', color: theme.colors.text, lineHeight: '1.6' }}>
             {mantra1}
           </p>
-           <p style={{ fontSize: '1.25rem', fontStyle: 'italic', color: theme.colors.text, lineHeight: '1.8', maxWidth: '800px', marginTop: '0.5rem' }}>
+           <p style={{ fontSize: '1.1rem', fontStyle: 'italic', color: theme.colors.textMuted, lineHeight: '1.6', marginTop: '0.5rem' }}>
             {mantra2}
           </p>
         </StyledTile>
@@ -275,9 +301,9 @@ const Profile = ({ user }) => {
   const ProjectsSection = (
     <>
       <SectionHeader className="fade-in" style={{ animationDelay: '0.4s', marginBottom: '1.5rem', fontSize:'2rem' }}>Featured Work</SectionHeader>
-      <Grid className="fade-in" style={{ marginBottom: '2rem', animationDelay: '0.4s' }}>
+      <MasonryGrid className="fade-in" style={{ marginBottom: '2rem', animationDelay: '0.4s' }}>
         {topProjects.map((project, i) => (
-          <Column lg={6} md={4} sm={4} key={i} style={{ marginBottom: '2rem' }}>
+          <div key={i}>
             <StyledTile style={{ display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
                 <h3 style={{ fontSize: '1.5rem' }}>{project.name}</h3>
@@ -286,7 +312,7 @@ const Profile = ({ user }) => {
               {(project.website && project.website !== '#' && !project.website.includes('github.com')) && (
                 <div style={{ 
                   width: '100%', borderRadius: '4px', overflow: 'hidden', marginBottom: '1.5rem', 
-                  position: 'relative', paddingTop: '56.25%', backgroundColor: theme.colors.border, border: `1px solid ${theme.colors.border}` 
+                  position: 'relative', paddingTop: '35%', backgroundColor: theme.colors.border, border: `1px solid ${theme.colors.border}` 
                 }}>
                   <iframe 
                     src={formatUrl(project.website)} 
@@ -298,7 +324,7 @@ const Profile = ({ user }) => {
                 </div>
               )}
 
-              <p style={{ color: theme.colors.textMuted, fontSize: '1rem', marginBottom: '1.5rem', lineHeight: '1.6' }}>
+              <p style={{ color: theme.colors.textMuted, fontSize: '1rem', marginBottom: '1.5rem', lineHeight: '1.6', flexGrow: 1 }}>
                 {project.summary || project.description || "A comprehensive technical project."}
               </p>
               <div style={{ marginBottom: '1.5rem' }}>
@@ -328,9 +354,9 @@ const Profile = ({ user }) => {
                 )}
               </div>
             </StyledTile>
-          </Column>
+          </div>
         ))}
-      </Grid>
+      </MasonryGrid>
     </>
   );
 
@@ -400,19 +426,28 @@ const Profile = ({ user }) => {
     </>
   );
 
+  const NetworkSection = (
+    <div style={{ marginTop: '2rem', marginBottom: '4rem' }}>
+      <SectionHeader className="fade-in" style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>Blogs</SectionHeader>
+      <Grid>
+        <MediumArticles hideHeader={true} />
+        <GFGArticles hideHeader={true} />
+      </Grid>
+      <div style={{ marginTop: '3rem' }}>
+        <MentorshipFeedbacks />
+      </div>
+    </div>
+  );
+
   let renderOrder = [];
   if (intent === 'hiring') {
-    // For hiring: Career, Skills, Projects, Mantra, Pubs, Hobbies
-    renderOrder = [CareerSection, SkillsSection, ProjectsSection, MantraSection, PubsSection, HobbiesSection];
+    renderOrder = [CareerSection, SkillsSection, ProjectsSection, NetworkSection, HobbiesSection];
   } else if (intent === 'freelance') {
-    // For freelance: Projects (Direct value), Skills, Career, Mantra, Pubs, Hobbies
-    renderOrder = [ProjectsSection, SkillsSection, CareerSection, MantraSection, PubsSection, HobbiesSection];
+    renderOrder = [ProjectsSection, SkillsSection, CareerSection, NetworkSection, HobbiesSection];
   } else if (intent === 'mentorship') {
-    // For mentorship: Mantra (Philosophy) first, then Skills, Pubs (Knowledge), Projects
-    renderOrder = [MantraSection, SkillsSection, PubsSection, ProjectsSection, CareerSection, HobbiesSection];
+    renderOrder = [NetworkSection, SkillsSection, ProjectsSection, CareerSection, HobbiesSection];
   } else {
-    // Default flow
-    renderOrder = [MantraSection, CareerSection, SkillsSection, ProjectsSection, PubsSection, HobbiesSection];
+    renderOrder = [CareerSection, SkillsSection, ProjectsSection, NetworkSection, HobbiesSection];
   }
 
   return (

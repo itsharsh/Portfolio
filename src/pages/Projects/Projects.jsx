@@ -7,8 +7,32 @@ import { formatUrl } from '../../utils';
 import { personalData } from '../../personalData';
 
 const ProjectsHero = styled.div`
-  padding: 1.5rem 0 1rem 0;
+  padding: 0 0 1rem 0;
   margin-bottom: 2rem;
+`;
+
+const MasonryGrid = styled.div`
+  -webkit-column-count: 1;
+  -moz-column-count: 1;
+  column-count: 1;
+  -webkit-column-gap: 2rem;
+  -moz-column-gap: 2rem;
+  column-gap: 2rem;
+  
+  @media (min-width: 1056px) {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+
+  & > div {
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 2rem;
+    display: table;
+    width: 100%;
+  }
 `;
 
 const FilterGrid = styled.div`
@@ -90,7 +114,7 @@ const ProjectCard = styled(StyledTile)`
   .actions {
     display: flex;
     gap: 0.5rem;
-    
+
     a {
       color: ${theme.colors.text};
       transition: color 0.2s;
@@ -119,7 +143,7 @@ const ProjectCard = styled(StyledTile)`
     padding-top: 56.25%; /* 16:9 Aspect Ratio */
     background-color: ${theme.colors.border};
     border: 1px solid ${theme.colors.border};
-    
+
     iframe {
       position: absolute;
       top: 0;
@@ -175,9 +199,9 @@ const Projects = ({ user }) => {
         <Column lg={16} md={8} sm={4}>
           <SearchContainer style={{ maxWidth: '100%' }}>
             <Search size={20} />
-            <input 
-              type="text" 
-              placeholder="Search by technology or keyword..." 
+            <input
+              type="text"
+              placeholder="Search by technology or keyword..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -185,12 +209,12 @@ const Projects = ({ user }) => {
         </Column>
       </Grid>
 
-      <Grid>
+      <MasonryGrid className="fade-in" style={{ animationDelay: '0.4s' }}>
         {filteredProjects.map((project, i) => (
-          <Column lg={8} md={8} sm={4} key={i} style={{ marginBottom: '2rem' }}>
-            <ProjectCard>
-              <div className="header" style={{ marginBottom: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <h3 style={{ fontSize: '1.5rem', margin: 0 }}>{project.name}</h3>
+          <div key={i}>
+            <StyledTile style={{ display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
+                <h3 style={{ fontSize: '1.5rem' }}>{project.name}</h3>
                 <div className="actions" style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                   {(project.website && project.website !== '#' && !project.website.includes('github.com')) && (
                     <ProjectActionBtn $primary href={formatUrl(project.website)} target="_blank" rel="noreferrer">
@@ -204,28 +228,32 @@ const Projects = ({ user }) => {
                   )}
                 </div>
               </div>
-              
+
               {(project.website && project.website !== '#' && !project.website.includes('github.com')) && (
-                <div className="preview-container">
-                  <iframe 
-                    src={formatUrl(project.website)} 
+                <div style={{
+                  width: '100%', borderRadius: '4px', overflow: 'hidden', marginBottom: '1.5rem',
+                  position: 'relative', paddingTop: '35%', backgroundColor: theme.colors.border, border: `1px solid ${theme.colors.border}`
+                }}>
+                  <iframe
+                    src={formatUrl(project.website)}
                     title={`${project.name} Preview`}
                     sandbox="allow-scripts allow-same-origin"
                     loading="lazy"
+                    style={{ position: 'absolute', top: 0, left: 0, width: '200%', height: '200%', transform: 'scale(0.5)', transformOrigin: '0 0', border: 'none', pointerEvents: 'none' }}
                   />
                 </div>
               )}
 
-              <p>{project.summary}</p>
+              <p style={{ color: theme.colors.textMuted, lineHeight: '1.6', marginBottom: '2rem', flexGrow: 1 }}>{project.summary}</p>
               <div className="tags">
                 {project.languages.map((lang, idx) => (
                   <TechPill key={idx} style={{ marginTop: 0 }}>{lang}</TechPill>
                 ))}
               </div>
-            </ProjectCard>
-          </Column>
+            </StyledTile>
+          </div>
         ))}
-      </Grid>
+      </MasonryGrid>
     </Container>
   );
 };

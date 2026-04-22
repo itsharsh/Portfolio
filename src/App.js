@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Circles } from "react-loader-spinner";
-
 import Pages from "./pages";
 
 function App() {

@@ -1,8 +1,9 @@
 export const personalData = {
-  // Architectural Patterns / Mockups for the "Featured Projects" visual 
+  // Architectural Patterns / Mockups for the "Featured Projects" visual
   architecturePatterns: [
     {
       title: "Cost-Optimized Identity Architecture",
+      role: "Full-stack Software Engineer",
       summary: "Refactored legacy IAM service into JWT-based RBAC, reducing system-wide traffic by 25% and decommissioning redundant microservices.",
       category: "Systems",
       type: "code",
