@@ -65,12 +65,6 @@ const CategoryCard = styled(StyledTile)`
   }
 `;
 
-const ProfileHero = styled.div`
-  padding: 0 0 1.5rem 0;
-  border-bottom: 1px solid ${theme.colors.border};
-  margin-bottom: 2rem;
-`;
-
 const MasonryGrid = styled.div`
   -webkit-column-count: 1;
   -moz-column-count: 1;
@@ -359,30 +353,6 @@ const Profile = ({ user }) => {
       </MasonryGrid>
     </>
   );
-
-  const PubsSection = user.publications?.length > 0 ? (
-    <>
-      <SectionHeader className="fade-in" style={{ animationDelay: '0.45s', marginBottom: '1.5rem', fontSize:'2rem' }}>Publications</SectionHeader>
-      <Grid className="fade-in" style={{ marginBottom: '2rem', animationDelay: '0.45s' }}>
-        {user.publications.map((pub, idx) => (
-          <Column lg={6} md={4} sm={4} key={idx}>
-            <StyledTile>
-              <Catalog size={32} style={{ fill: theme.colors.secondary, marginBottom: '1rem' }} />
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>{pub.name}</h3>
-              <p style={{ color: theme.colors.textMuted, marginBottom: '1rem', fontSize: '0.9rem' }}>
-                {pub.publisher} • {pub.releaseDate && pub.releaseDate.substring(0, 4)}
-              </p>
-              {pub.url && (
-                <a href={pub.url} target="_blank" rel="noreferrer" style={{ color: theme.colors.primary, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', fontWeight: 600 }}>
-                  Read Publication <ArrowRight size={16} />
-                </a>
-              )}
-            </StyledTile>
-          </Column>
-        ))}
-      </Grid>
-    </>
-  ) : null;
 
   const HobbiesSection = (
     <>

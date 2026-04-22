@@ -35,17 +35,6 @@ const MasonryGrid = styled.div`
   }
 `;
 
-const FilterGrid = styled.div`
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
 const SearchContainer = styled.div`
   flex-grow: 1;
   max-width: 600px;
@@ -76,90 +65,7 @@ const SearchContainer = styled.div`
   }
 `;
 
-const FilterButton = styled.button`
-  background-color: \${props => props.$active ? theme.colors.surfaceTonal : 'transparent'};
-  color: \${props => props.$active ? theme.colors.text : theme.colors.textMuted};
-  border: 1px solid ${theme.colors.border};
-  padding: 0 1.5rem;
-  height: 48px;
-  border-radius: 4px;
-  font-family: ${theme.fonts.primary};
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background-color: ${theme.colors.surfaceTonal};
-    color: ${theme.colors.text};
-  }
-`;
-
-const ProjectCard = styled(StyledTile)`
-  display: flex;
-  flex-direction: column;
-  padding: 2.5rem !important;
-
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 1.5rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-    color: ${theme.colors.text};
-  }
-
-  .actions {
-    display: flex;
-    gap: 0.5rem;
-
-    a {
-      color: ${theme.colors.text};
-      transition: color 0.2s;
-      &:hover { color: ${theme.colors.primary}; }
-    }
-  }
-
-  p {
-    color: ${theme.colors.textMuted};
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    flex-grow: 1;
-  }
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
-  .preview-container {
-    width: 100%;
-    border-radius: 4px;
-    overflow: hidden;
-    margin-bottom: 1.5rem;
-    position: relative;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
-    background-color: ${theme.colors.border};
-    border: 1px solid ${theme.colors.border};
-
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      transform: scale(0.5);
-      transform-origin: 0 0;
-      border: none;
-      pointer-events: none;
-    }
-  }
-`;
-
 const Projects = ({ user }) => {
-  const [activeFilter, setActiveFilter] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
   // Combine GitConnected Projects with the temporary ones from personalData
