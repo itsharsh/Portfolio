@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid, Column, Button } from '@carbon/react';
-import { Container, StyledTile, SectionHeader, TechPill, theme } from '../../styles';
+import { Grid, Column } from '@carbon/react';
+import { Container, StyledTile, SectionHeader, TechPill, ProjectActionBtn, theme } from '../../styles';
 import styled from 'styled-components';
 
 import { useIntent } from '../../context/IntentContext';
@@ -12,16 +12,43 @@ const AboutHero = styled.div`
 `;
 
 const ContactCard = styled(StyledTile)`
-  padding: 3rem !important;
+  padding: 2.5rem !important;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid ${theme.colors.border};
+  background: linear-gradient(145deg, ${theme.colors.surface} 0%, rgba(0, 0, 0, 0.4) 100%);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    border-color: ${theme.colors.primary}50;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px ${theme.colors.primary}15;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, ${theme.colors.primary}, ${theme.colors.secondary});
+  }
 
   h3 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 0.5rem;
+    background: linear-gradient(120deg, ${theme.colors.text}, ${theme.colors.primary});
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
   }
 
   p {
     color: ${theme.colors.textMuted};
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
   }
 `;
 
@@ -53,7 +80,7 @@ const About = ({ user }) => {
   // Dynamic Philosophy variables
   let mantraTitle = "Engineering Philosophy";
   let mantra1 = `"Write code that is easy to delete, not easy to extend. Focus on modularity, testability, and delivering value quickly."`;
-  let mantra2 = `"Hope for the best, prepare for the worst."`;
+  let mantra2 = `"Trust the process. Excellence is the byproduct of consistency, curiosity, and relentless iteration."`;
 
   if (intent === 'hiring') {
     mantraTitle = "Leadership & Scale";
@@ -121,39 +148,35 @@ const About = ({ user }) => {
         <Column lg={5} md={8} sm={4}>
           <ContactCard>
             <h3>Get in Touch</h3>
-            <p>Let's discuss how we can work together.</p>
+            <p>Ready to push boundaries? Let's discuss how we can work together to architect your next system.</p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '2rem' }}>
-              <Button
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
+              <ProjectActionBtn
+                $primary
                 as="a"
                 href={mailtoLink}
-                size="lg"
-                style={{ width: '100%', justifyContent: 'center' }}
+                style={{ width: '100%', justifyContent: 'center', padding: '1rem' }}
               >
                 Send Message via Email
-              </Button>
-              <Button
+              </ProjectActionBtn>
+              <ProjectActionBtn
                 as="a"
                 href={linkedin}
                 target="_blank"
                 rel="noreferrer"
-                kind="secondary"
-                size="lg"
-                style={{ width: '100%', justifyContent: 'center', backgroundColor: '#161616', border: `1px solid ${theme.colors.border}`, color: 'white' }}
+                style={{ width: '100%', justifyContent: 'center', padding: '1rem' }}
               >
                 Connect on LinkedIn
-              </Button>
-              <Button
+              </ProjectActionBtn>
+              <ProjectActionBtn
                 as="a"
                 href={github}
                 target="_blank"
                 rel="noreferrer"
-                kind="tertiary"
-                size="lg"
-                style={{ width: '100%', justifyContent: 'center', color: theme.colors.textMuted }}
+                style={{ width: '100%', justifyContent: 'center', padding: '1rem', backgroundColor: 'transparent', borderColor: 'transparent', opacity: 0.8 }}
               >
                 View Code on GitHub
-              </Button>
+              </ProjectActionBtn>
             </div>
           </ContactCard>
         </Column>

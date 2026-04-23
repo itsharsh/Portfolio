@@ -50,6 +50,7 @@ const SearchContainer = styled.div`
     border-radius: 4px;
     outline: none;
     font-family: ${theme.fonts.primary};
+    box-sizing: border-box;
 
     &:focus {
       border-color: ${theme.colors.primary};
@@ -87,7 +88,7 @@ const Projects = ({ user }) => {
   });
 
   return (
-    <Container className="fade-in">
+    <Container className="fade-in" style={{ overflowX: 'hidden' }}>
       <ProjectsHero>
         <Grid>
           <Column lg={16} md={8} sm={4}>
@@ -119,8 +120,8 @@ const Projects = ({ user }) => {
         {filteredProjects.map((project, i) => (
           <div key={i}>
             <StyledTile style={{ display: 'flex', flexDirection: 'column' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
-                <h3 style={{ fontSize: '1.5rem' }}>{project.name}</h3>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1rem' }}>
+                <h3 style={{ fontSize: '1.5rem', wordBreak: 'break-word' }}>{project.name}</h3>
                 <div className="actions" style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                   {(project.website && project.website !== '#' && !project.website.includes('github.com')) && (
                     <ProjectActionBtn $primary href={formatUrl(project.website)} target="_blank" rel="noreferrer">
@@ -151,9 +152,9 @@ const Projects = ({ user }) => {
               )}
 
               <p style={{ color: theme.colors.textMuted, lineHeight: '1.6', marginBottom: '2rem', flexGrow: 1 }}>{project.summary}</p>
-              <div className="tags">
+              <div className="tags" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
                 {project.languages.map((lang, idx) => (
-                  <TechPill key={idx} style={{ marginTop: 0 }}>{lang}</TechPill>
+                  <TechPill key={idx} style={{ margin: 0 }}>{lang}</TechPill>
                 ))}
               </div>
             </StyledTile>

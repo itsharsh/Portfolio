@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid, Column, Button } from '@carbon/react';
-import { ArrowRight, Code, Cloud, DataBase, Events, Video, LogoInstagram, LogoYoutube, Launch } from '@carbon/icons-react';
+import { Grid, Column } from '@carbon/react';
+import { ArrowRight, Code, Cloud, DataBase, Events, Video, LogoInstagram, LogoYoutube, Launch, DocumentDownload } from '@carbon/icons-react';
 import {
   StyledTile,
   HeroHeadline,
@@ -166,7 +166,7 @@ const Profile = ({ user }) => {
   // Dynamic Mantra variables
   let mantraTitle = "Engineering Vision";
   let mantra1 = `"Write code that is easy to delete, not easy to extend. Focus on modularity, testability, and delivering value quickly."`;
-  let mantra2 = `"Hope for the best, prepare for the worst."`;
+  let mantra2 = `"Trust the process. Excellence is the byproduct of consistency, curiosity, and relentless iteration."`;
 
   if (intent === 'hiring') {
     heroSubline = "Full Stack Engineer & Team Leader.";
@@ -194,24 +194,46 @@ const Profile = ({ user }) => {
 
   const HeroSection = (
     <Grid className="fade-in" style={{ marginBottom: '4rem', alignItems: 'center' }}>
-      <Column lg={7} md={8} sm={4}>
-        <StatusPill>{user.basics.label}</StatusPill>
-        <HeroHeadline style={{ fontSize: '3.5rem' }}>
-          {user.basics.name.split(' ')[0]}.<br />
-          <span style={{ fontSize: '2rem' }}>{heroSubline}</span>
+      <Column lg={8} md={8} sm={4} style={{ marginBottom: '2rem' }}>
+        <StatusPill>Full Stack Engineer & Team Leader</StatusPill>
+        <HeroHeadline>
+          {user.basics.name.split(' ')[0]}.
+          <span>{heroSubline}</span>
         </HeroHeadline>
-        <HeroSubtitle style={{ maxWidth: '90%' }}>
+        <HeroSubtitle>
           {heroSummary}
         </HeroSubtitle>
-        {intent === 'mentorship' && (
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '2rem' }}>
-            <Button renderIcon={ArrowRight} size="lg" as="a" href="https://www.geeksforgeeks.org/profile/itsharsh/" target="_blank">
-              Book Mentorship Session
-            </Button>
-          </div>
-        )}
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          {intent === 'hiring' && (
+            <ProjectActionBtn $primary href="http://resume.itsharsh.com/" target="_blank">
+              <DocumentDownload size={20} /> View Resume
+            </ProjectActionBtn>
+          )}
+          {intent === 'mentorship' && (
+            <ProjectActionBtn $primary href="https://www.geeksforgeeks.org/profile/itsharsh/" target="_blank">
+              <Launch size={20} /> Book Mentorship
+            </ProjectActionBtn>
+          )}
+          {intent === 'freelance' && (
+            <ProjectActionBtn $primary href={`mailto:itsharsh@google.com?subject=Project%20Query&body=Hi%20Harsh,%20I'd%20like%20to%20discuss...`}>
+              <ArrowRight size={20} /> Start Collaboration
+            </ProjectActionBtn>
+          )}
+          {intent === 'browsing' && (
+            <ProjectActionBtn $primary as="a" href="/treasure">
+              <Launch size={20} /> Explore Treasure Box
+            </ProjectActionBtn>
+          )}
+          
+          {/* Default secondary button if no intent specific one exists for a common action */}
+          {intent !== 'hiring' && intent !== 'browsing' && (
+              <ProjectActionBtn href="http://resume.itsharsh.com/" target="_blank">
+                Resume
+              </ProjectActionBtn>
+          )}
+        </div>
       </Column>
-      <Column lg={5} md={8} sm={4}>
+      <Column lg={4} md={8} sm={4}>
         <StyledTile style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', border: `1px solid ${theme.colors.primary}40`, backgroundColor: `${theme.colors.primary}05` }}>
            <h2 style={{ fontSize: '1.5rem', color: theme.colors.primary, marginBottom: '0.5rem' }}>{mantraTitle}</h2>
            <p style={{ fontSize: '1.1rem', fontStyle: 'italic', color: theme.colors.text, lineHeight: '1.6' }}>

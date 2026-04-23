@@ -14,8 +14,7 @@ const WelcomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+  min-height: calc(100vh - 60px);
   background-color: ${theme.colors.background};
   color: ${theme.colors.text};
   padding: 4rem 2rem;
@@ -27,6 +26,7 @@ const ContentWrapper = styled.div`
   width: 100%;
   animation: ${fadeIn} 0.8s ease-out;
   text-align: center;
+  margin: auto 0;
 `;
 
 const QuestionText = styled.h1`
@@ -146,7 +146,9 @@ const Welcome = ({ user }) => {
               width: '120px', 
               height: '120px', 
               borderRadius: '50%', 
-              marginBottom: '1.5rem',
+              margin: '0 auto 1.5rem auto',
+              display: 'block',
+              flexShrink: 0,
               border: `2px solid ${theme.colors.border}`,
               objectFit: 'cover'
             }} 
@@ -158,7 +160,7 @@ const Welcome = ({ user }) => {
           {headline}.
         </p>
         <p style={{ color: theme.colors.primary, fontSize: '1rem', fontFamily: theme.fonts.technical, marginBottom: '2rem', letterSpacing: '0.05em' }}>
-          {user?.basics?.label?.toUpperCase()}
+          FULL STACK ENGINEER & TEAM LEADER
         </p>
 
         <SocialRow>

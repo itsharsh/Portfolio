@@ -111,30 +111,66 @@ export const TechPill = styled.span`
   }
 `;
 
+export const StatusPill = styled.div`
+  background: ${theme.colors.surfaceTonal};
+  border: 1px solid ${theme.colors.primary}40;
+  color: ${theme.colors.primary};
+  font-family: ${theme.fonts.technical};
+  padding: 0.4rem 0.8rem;
+  border-radius: ${theme.rounding.sm};
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.4s ease-out;
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+`;
+
 export const HeroHeadline = styled.h1`
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 8vw, 4rem);
   line-height: 1.1;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   font-weight: 700;
 
   span {
     color: ${theme.colors.textMuted};
     font-weight: 500;
+    font-size: 0.6em;
+    display: block;
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+     margin-bottom: 1rem;
   }
 `;
 
 export const HeroSubtitle = styled.p`
-  font-size: 1.15rem;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
   color: ${theme.colors.textMuted};
   max-width: 650px;
   line-height: 1.6;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
+
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+  }
 `;
 
 export const SectionHeader = styled.h2`
-  font-size: 3rem;
+  font-size: clamp(1.75rem, 6vw, 3rem);
   margin-bottom: 3rem;
   color: ${theme.colors.text};
+
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+  }
 `;
 
 // Alias for compatibility

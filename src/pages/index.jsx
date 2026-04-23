@@ -4,10 +4,10 @@ import Layout from "../components/Layout/Layout";
 import Profile from "./Profile/Profile";
 import Projects from "./Projects/Projects";
 import Experience from "./Experience/Experience";
-import Education from "./Education/Education";
-import Achievements from "./Achievements/Achievements";
+import Journey from "./Journey/Journey";
 import About from "./About/About"; // We will create this
 import Blogs from "./Blogs/Blogs";
+import TreasureBox from "./TreasureBox/TreasureBox";
 import Welcome from "./Welcome/Welcome";
 import { GlobalStyle } from "../styles";
 import { IntentProvider, useIntent } from "../context/IntentContext";
@@ -27,9 +27,9 @@ const Routing = ({ user }) => {
         <Route path="/about" element={<About user={user} />} />
         <Route path="/projects" element={<Projects user={user} />} />
         <Route path="/experience" element={<Experience user={user} />} />
-        <Route path="/education" element={<Education user={user} />} />
-        <Route path="/achievements" element={<Achievements user={user} />} />
+        <Route path="/journey" element={<Journey user={user} />} />
         <Route path="/blogs" element={<Blogs user={user} />} />
+        <Route path="/treasure" element={<TreasureBox user={user} />} />
       </Routes>
     </Layout>
   );

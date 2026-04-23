@@ -24,7 +24,7 @@ export const BlogCard = styled(StyledTile)`
   }
 
   .main-title {
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
     color: ${theme.colors.text};
     margin: 0;
   }
